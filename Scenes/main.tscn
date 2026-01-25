@@ -1418,6 +1418,11 @@ transform = Transform3D(-48.300205, 21.670727, -192.86642, 71.097725, -182.95741
 mass = 1000.0
 gravity_scale = 5.22
 
+[node name="Car" parent="." instance=ExtResource("17_h1bgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.316742, 0.35197935, -6.4136972)
+jump_force = 13000.0
+max_speed = 70.0
+
 [node name="Car2" parent="." instance=ExtResource("7_6bp64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.461561, 0.71177936, -7.003299)
 car_id = 1
@@ -1448,9 +1453,6 @@ shadow_reverse_cull_face = true
 
 [node name="PowerUp" parent="." instance=ExtResource("16_k12tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.79301, 0.05, 60.953377)
-
-[node name="Car" parent="." instance=ExtResource("17_h1bgf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2162504, 0.725, -6.585722)
 
 [editable path="test_map"]
 [editable path="Objects/loop"]

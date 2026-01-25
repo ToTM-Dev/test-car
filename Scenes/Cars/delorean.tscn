@@ -162,14 +162,14 @@ roughness = 0.0
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vq1ag"]
 points = PackedVector3Array(1.0003002, -0.1209867, 0.039918184, 0.9237156, 0.1699295, 0.039918184, 0.9536834, -0.046691477, 1.3017223, 0.95446694, -0.05510962, 1.3481307, 0.95485866, -0.05912295, 1.3615096, 0.95642555, -0.11012137, 1.4672871, 0.95681727, -0.1223571, 1.4823384, 0.9581884, -0.17227879, 1.5329278, 0.9597553, -0.243148, 1.5793359, 0.9607347, -0.32008612, 1.6073482, 0.9609306, -0.40005875, 1.6173825, 1.0003002, -0.21750197, 0.039918184, 0.9609306, -0.40005875, -1.4376218, 0.9607347, -0.32008612, -1.4275876, 0.9597553, -0.243148, -1.3995755, 0.9581884, -0.17227879, -1.3535852, 0.95681727, -0.1223571, -1.3025779, 0.95642555, -0.11012137, -1.2879446, 0.95485866, -0.05912295, -1.182167, 0.95446694, -0.05510962, -1.16837, 0.9536834, -0.046691477, -1.1219617, 0.89453113, 0.20516837, -0.46931887, 0.91118, 0.20536411, 0.039918184, 0.8498732, 0.23991776, 1.9999373, 0.9004072, 0.013312459, 2.13749, 0.91255105, -0.14340252, 2.1274555, 0.9609306, -0.40250587, 1.6173825, 0.9566214, -0.4800313, 1.6173825, 0.9566214, -0.4800313, -1.4376218, 0.9609306, -0.40250587, -1.4376218, 0.9184271, -0.09935394, -2.0346584, 0.8498732, 0.14320672, -1.8803821, 0.8177507, 0.4645654, 0.038245916, 0.8161838, 0.4685787, 0.056641817, 0.716095, 0.29072046, 1.7352846, -0.8500689, 0.23991776, 1.9999373, 0.8498732, 0.1699295, 2.109896, 0.80364823, 0.5, 0.039918184, 0.75605214, 0.46994913, 0.799593, -0.900603, 0.013312459, 2.13749, -0.91274685, -0.14340252, 2.1274555, 0.8498732, -0.30001956, 2.109896, 0.9530958, -0.5, 1.6173825, 0.9530958, -0.5, -1.4376218, 0.906675, -0.30354345, -2.1337464, 0.91157174, -0.12685981, -2.1291473, 0.8498732, 0.11315584, -1.9803063, -0.8500689, 0.14320672, -1.8803821, -0.71629083, 0.29072046, 1.7352846, -0.95387924, -0.046691477, 1.3017223, -0.9546627, -0.05510962, 1.3481307, -0.95505446, -0.05912295, 1.3615096, -0.8500689, 0.1699295, 2.109896, -0.756248, 0.46994913, 0.799593, -0.803844, 0.5, 0.039918184, -0.8163796, 0.4685787, 0.056641817, -0.91137576, 0.20536411, 0.039918184, -0.92391133, 0.1699295, 0.039918184, -0.9566214, -0.11012137, 1.4672871, -0.95701313, -0.1223571, 1.4823384, -0.9583842, -0.17227879, 1.5329278, -0.8500689, -0.30001956, 2.109896, -0.95995116, -0.243148, 1.5793359, -0.96093047, -0.32008612, 1.6073482, -0.9611263, -0.40005875, 1.6173825, -0.9611263, -0.40250587, 1.6173825, -0.95681727, -0.4800313, 1.6173825, -0.9532916, -0.5, 1.6173825, 0.8998196, -0.5, 1.6750793, 0.9205817, -0.5, 1.6671355, 0.9405602, -0.5, 1.6437223, 0.88826334, -0.5, -1.8958516, 0.8498732, -0.40485513, -2.023788, -0.9068708, -0.30354345, -2.1337464, -0.9117675, -0.12685981, -2.1291473, 0.8152044, 0.082615495, -2.000793, -0.8500689, 0.11315584, -1.9803063, -0.9186229, -0.09935394, -2.0346584, -0.9546627, -0.05510962, -1.16837, -0.95387924, -0.046691477, -1.1219617, -0.894727, 0.20516837, -0.46931887, -0.81794655, 0.4645654, 0.038245916, -1.0004959, -0.1209867, 0.039918184, -0.940756, -0.5, 1.6437223, -0.92077744, -0.5, 1.6671355, -0.9000154, -0.5, 1.6750793, -1.0004959, -0.21750197, 0.039918184, -0.95681727, -0.4800313, -1.4376218, -0.9532916, -0.5, -1.4376218, -0.88845915, -0.5, -1.8958516, -0.8500689, -0.40485513, -2.023788, -0.9611263, -0.40250587, -1.4376218, -0.81540024, 0.082615495, -2.000793, -0.9611263, -0.40005875, -1.4376218, -0.96093047, -0.32008612, -1.4275876, -0.95995116, -0.243148, -1.3995755, -0.9583842, -0.17227879, -1.3535852, -0.95701313, -0.1223571, -1.3025779, -0.9566214, -0.11012137, -1.2879446, -0.95505446, -0.05912295, -1.182167)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ac15w"]
-height = 0.3
-radius = 0.325
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_do8ac"]
 top_radius = 0.325
 bottom_radius = 0.325
 height = 0.26
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ac15w"]
+height = 0.3
+radius = 0.325
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vq1ag"]
 top_radius = 0.325
@@ -400,28 +400,36 @@ vibration = true
 materials = Array[Material]([ExtResource("3_6lc8r"), ExtResource("4_yxwta"), ExtResource("5_pr4cr"), ExtResource("6_1kcfq"), ExtResource("7_a70gl"), ExtResource("8_vsrr6"), ExtResource("9_kscks"), ExtResource("10_v2mf2"), SubResource("StandardMaterial3D_w7to3")])
 
 [node name="Carrosserie" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37302065, 0)
 mesh = SubResource("ArrayMesh_s7u5n")
 skeleton = NodePath("")
 surface_material_override/2 = SubResource("StandardMaterial3D_do8ac")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37302065, 0)
 visible = false
 shape = SubResource("ConvexPolygonShape3D_vq1ag")
 
 [node name="WheelFL" type="RayCast3D" parent="." node_paths=PackedStringArray("shapecast")]
 process_physics_priority = -1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.4, -1.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.026979357, -1.08)
 script = ExtResource("12_0ye4x")
 shapecast = NodePath("ShapeCast3D")
 shape_offset = 0.2
-spring_strength = 400.0
-spring_damping = 1.0
-rest_dist = 0.3
-over_extend = 0.3
+spring_strength = 500.0
+spring_damping = 9.0
+rest_dist = 0.1
+over_extend = 0.2
 wheel_radius = 0.325
 z_brake_traction = 1.0
 is_steer = true
 grip_curve = ExtResource("13_ah6j6")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="WheelFL"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("14_4mwed")
+mesh = SubResource("CylinderMesh_do8ac")
+skeleton = NodePath("")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="WheelFL"]
 process_priority = -1
@@ -432,22 +440,16 @@ target_position = Vector3(0, 0, 0)
 max_results = 3
 debug_shape_custom_color = Color(0.9882353, 0, 0, 1)
 
-[node name="Cylinder_002" type="MeshInstance3D" parent="WheelFL"]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-material_override = ExtResource("14_4mwed")
-mesh = SubResource("CylinderMesh_do8ac")
-skeleton = NodePath("")
-
 [node name="WheelFR" type="RayCast3D" parent="." node_paths=PackedStringArray("shapecast")]
 process_physics_priority = -1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.4, -1.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.026979357, -1.08)
 script = ExtResource("12_0ye4x")
 shapecast = NodePath("ShapeCast3D")
 shape_offset = 0.2
-spring_strength = 400.0
-spring_damping = 1.0
-rest_dist = 0.3
-over_extend = 0.3
+spring_strength = 500.0
+spring_damping = 9.0
+rest_dist = 0.1
+over_extend = 0.2
 wheel_radius = 0.325
 z_brake_traction = 1.0
 is_steer = true
@@ -470,14 +472,14 @@ debug_shape_custom_color = Color(0.9882353, 0, 0, 1)
 
 [node name="WheelRL" type="RayCast3D" parent="." node_paths=PackedStringArray("shapecast")]
 process_physics_priority = -1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74, -0.4, 1.26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74, -0.026979357, 1.26)
 script = ExtResource("12_0ye4x")
 shapecast = NodePath("ShapeCast3D")
 shape_offset = 0.2
-spring_strength = 400.0
-spring_damping = 1.0
-rest_dist = 0.3
-over_extend = 0.3
+spring_strength = 500.0
+spring_damping = 9.0
+rest_dist = 0.1
+over_extend = 0.2
 wheel_radius = 0.325
 z_brake_traction = 1.0
 is_motor = true
@@ -500,14 +502,14 @@ debug_shape_custom_color = Color(0.9882353, 0, 0, 1)
 
 [node name="WheelRR" type="RayCast3D" parent="." node_paths=PackedStringArray("shapecast")]
 process_physics_priority = -1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74, -0.4, 1.26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74, -0.026979357, 1.26)
 script = ExtResource("12_0ye4x")
 shapecast = NodePath("ShapeCast3D")
 shape_offset = 0.2
-spring_strength = 400.0
-spring_damping = 1.0
-rest_dist = 0.3
-over_extend = 0.3
+spring_strength = 500.0
+spring_damping = 9.0
+rest_dist = 0.1
+over_extend = 0.2
 wheel_radius = 0.325
 z_brake_traction = 1.0
 is_motor = true
@@ -529,7 +531,7 @@ max_results = 3
 debug_shape_custom_color = Color(0.9882353, 0, 0, 1)
 
 [node name="SkidMarks" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.49758482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37302065, -0.49758482)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="SkidMarks"]
 emitting = false
@@ -560,7 +562,7 @@ process_material = SubResource("ParticleProcessMaterial_hvwjs")
 draw_pass_1 = SubResource("QuadMesh_ac15w")
 
 [node name="Gun" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.61570704, 0.020812273)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.9887277, 0.020812273)
 material_override = SubResource("StandardMaterial3D_ocpyo")
 mesh = SubResource("CylinderMesh_0hoo8")
 script = ExtResource("16_ygbgs")
@@ -568,7 +570,7 @@ feedback = 3.0
 left_time = -5.0
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21306247, -0.2093054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15995818, -0.2093054)
 visible = false
 layers = 2
 occluder = ExtResource("17_w0ngs")
