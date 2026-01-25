@@ -1,0 +1,32 @@
+[gd_resource type="StandardMaterial3D" load_steps=8 format=3 uid="uid://du2jeh72qmk5o"]
+
+[ext_resource type="Texture2D" uid="uid://caj58plunhaky" path="res://materials/Facade018A_1K-JPG_Color.jpg" id="1_b3lsk"]
+[ext_resource type="Texture2D" uid="uid://3acqnn6wfnkw" path="res://materials/Facade018A_1K-JPG_AmbientOcclusion.jpg" id="2_q4t67"]
+[ext_resource type="Texture2D" uid="uid://cgsl3xy52lxtq" path="res://materials/Facade018A_1K-JPG_NormalDX.jpg" id="3_koodp"]
+[ext_resource type="Texture2D" uid="uid://wd832pce0aj7" path="res://materials/Facade018A_1K-JPG_Displacement.jpg" id="4_6lch0"]
+[ext_resource type="Texture2D" uid="uid://djms56qfvby4i" path="res://materials/Facade018A_1K-JPG_Metalness.jpg" id="5_ermt0"]
+[ext_resource type="Texture2D" uid="uid://bjtmiba1ggl7v" path="res://materials/Facade018A_1K-JPG_NormalGL.jpg" id="6_62xej"]
+[ext_resource type="Texture2D" uid="uid://cr2dltjrhfq3v" path="res://materials/Facade018A_1K-JPG_Roughness.jpg" id="7_nfxlg"]
+
+[resource]
+albedo_texture = ExtResource("1_b3lsk")
+metallic = 1.0
+metallic_texture = ExtResource("5_ermt0")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("7_nfxlg")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("6_62xej")
+bent_normal_enabled = true
+bent_normal_texture = ExtResource("3_koodp")
+ao_enabled = true
+ao_texture = ExtResource("2_q4t67")
+heightmap_deep_parallax = true
+heightmap_min_layers = 30
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("4_6lch0")
+uv1_scale = Vector3(0.06, 0.06, 0.06)
+uv1_triplanar = true
+stencil_flags = 2
+stencil_color = Color(0, 0, 0, 0.35686275)
+stencil_outline_thickness = 0.51

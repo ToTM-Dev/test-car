@@ -1,0 +1,33 @@
+[gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://cj5ddyblf2nst"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4v6n"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yt5rk"]
+_surfaces = [{
+"aabb": AABB(-0.1567439, -0.22303112, -0.15342543, 0.28982162, 0.5459415, 0.30146945),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("dVwAAKWqAADlYGi5//8AAFJYaLn//wAAi4cAAKWqAACPoQ4AdWYAAEFq7OAAAAAA+nPs4AAAAAD9bQ4AdWYAABKMGwDltgAA/////2iSAAD/////wZoAABKMGwDmfQAATmkRAMRpAAAAACPkSk0AAAoEI+QKQgAAAlgRAOyZAAA9fBEAO24AAMUWI+SIlQAA0hIj5ECKAAAljREAhJ4AAA==")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "grass_Plane_002"
+_surfaces = [{
+"aabb": AABB(-0.1567439, -0.22303112, -0.15342543, 0.28982162, 0.5459415, 0.30146945),
+"attribute_data": PackedByteArray("AAAAAP////8AAP////8AAAAAAAD/////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP////8AAP////8AAAAAAAD/////AAD/////AAA="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_s4v6n"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("dVwAAKWq2vXlYGi5///a9VJYaLn//9r1i4cAAKWq2vWPoQ4AdWb//0Fq7OAAAP//+nPs4AAA///9bQ4AdWb//xKMGwDltjT5/////2iSNPn/////wZo0+RKMGwDmfTT5TmkRAMRpHvoAACPkSk0e+goEI+QKQh76AlgRAOyZHvo9fBEAO27E98UWI+SIlcT30hIj5ECKxPcljREAhJ7E9////3////9/////f////3//fxuO/38bjv9/G47/fxuO1fhrPNX4azzV+Gs81fhrPKKxtoiisbaIorG2iKKxtojGxlyGxsZchsbGXIbGxlyG")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yt5rk")

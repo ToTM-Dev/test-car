@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://0qoyth0eft0f"]
+
+[ext_resource type="Texture2D" uid="uid://bupidws3vpfgs" path="res://materials/christamas/ChristmasTreeOrnament014_1K-JPG_Color.jpg" id="1_yqx0n"]
+
+[resource]
+albedo_texture = ExtResource("1_yqx0n")
+uv1_triplanar_sharpness = 0.045752637

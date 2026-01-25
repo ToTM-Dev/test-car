@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://btwwaadw0kl07"]
+
+[sub_resource type="Curve" id="Curve_mvi3f"]
+_data = [Vector2(0.1790393, 0), 0.0, 0.0, 0, 0, Vector2(0.99563324, 1), 3.244257, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w7to3"]
+curve = SubResource("Curve_mvi3f")
+
+[resource]
+albedo_color = Color(0.9585946, 0.38892153, 0.28360245, 1)
+albedo_texture = SubResource("CurveTexture_w7to3")

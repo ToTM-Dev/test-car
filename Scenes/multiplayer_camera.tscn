@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://chyext6lvve0v"]
+
+[ext_resource type="Script" uid="uid://c6xnt5jthao31" path="res://Scripts/car_follow_camera.gd" id="1_inet2"]
+[ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="2_t5ppd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inet2"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.12156863, 0.101960786, 0.15294118, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+audio_listener_enable_3d = true
+sdf_scale = 0
+oversampling = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
+top_level = true
+current = true
+script = ExtResource("1_inet2")
+offset = 1.6
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="SubViewport/Control/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SubViewport/Control/AspectRatioContainer/CenterContainer"]
+modulate = Color(0.93634313, 0, 0.16030714, 1)
+z_index = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 300
+text = "5"
+
+[node name="Panel" type="Panel" parent="SubViewport/Control/AspectRatioContainer/CenterContainer/Label"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_inet2")
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t5ppd")

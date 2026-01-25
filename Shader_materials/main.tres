@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://crdfm6udt74u2"]
+
+[ext_resource type="Texture2D" uid="uid://ddrecg3fimuav" path="res://materials/textures/coast_sand_rocks_02_diff_4k.png" id="1_oblph"]
+[ext_resource type="Texture2D" uid="uid://4ma3sw3lih63" path="res://materials/textures/coast_sand_rocks_02_ao_4k.png" id="2_v11j8"]
+[ext_resource type="Texture2D" uid="uid://cv7os1n5db501" path="res://materials/textures/coast_sand_rocks_02_nor_gl_4k.png" id="3_5i7ek"]
+[ext_resource type="Texture2D" uid="uid://dpxbifa4urghg" path="res://materials/textures/coast_sand_rocks_02_nor_dx_4k.png" id="4_uxqhr"]
+
+[resource]
+albedo_color = Color(0.34415537, 0.422545, 0.095483415, 1)
+albedo_texture = ExtResource("1_oblph")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_uxqhr")
+bent_normal_enabled = true
+bent_normal_texture = ExtResource("3_5i7ek")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_v11j8")
+uv1_scale = Vector3(20.27, 20.27, 20.27)
+grow_amount = -0.716

@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://750syvfslily"]
+
+[ext_resource type="Script" uid="uid://cfr8j71o5ujt8" path="res://Scripts/power_up.gd" id="1_p3i06"]
+[ext_resource type="Texture2D" uid="uid://bbwotqrja5vqi" path="res://ressources/arrow.png" id="1_psa43"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3i06"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6otjv"]
+blend_mode = 1
+albedo_color = Color(0.7750634, 0.7750634, 0.7750634, 1)
+albedo_texture = ExtResource("1_psa43")
+emission_texture = ExtResource("1_psa43")
+uv1_scale = Vector3(38.045, 30, 15.93)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_psa43"]
+top_radius = 5.0
+bottom_radius = 5.2
+height = 20.0
+
+[sub_resource type="Animation" id="Animation_q2kqf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:material_override:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iil6j"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:material_override:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e61te"]
+_data = {
+&"RESET": SubResource("Animation_q2kqf"),
+&"new_animation": SubResource("Animation_iil6j")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7djbq"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d2qg5"]
+top_radius = 5.0
+bottom_radius = 5.0
+height = 0.1
+
+[node name="PowerUp" type="Area3D"]
+script = ExtResource("1_p3i06")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+visible = false
+shape = SubResource("BoxShape3D_p3i06")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+material_override = SubResource("StandardMaterial3D_6otjv")
+mesh = SubResource("CylinderMesh_psa43")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e61te")
+}
+speed_scale = 2.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_7djbq")
+mesh = SubResource("CylinderMesh_d2qg5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

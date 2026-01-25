@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2vqqjg8n2t65"]
+
+[ext_resource type="Script" uid="uid://gra1xjxgss66" path="res://Scripts/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://cdig6qunu4b4l" path="res://ressources/damier-carreaux-marbre-pierre-bleue.jpg" id="1_xjght"]
+
+[sub_resource type="Curve" id="Curve_oduel"]
+_data = [Vector2(0.0049504936, 0.04494381), 0.0, 0.0, 0, 0, Vector2(0.21782178, 1), 8.574278, 0.0, 0, 0, Vector2(0.98019797, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_oduel"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycag2"]
+albedo_color = Color(0.6052743, 0.6052743, 0.6052743, 1)
+albedo_texture = ExtResource("1_xjght")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6afsh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oduel"]
+radius = 0.55
+
+[node name="Bullet" type="RigidBody3D"]
+gravity_scale = 0.0
+linear_damp_mode = 1
+script = ExtResource("1_oduel")
+dispawn_time = 2.5
+scale_curve = SubResource("Curve_oduel")
+max_scale = 50.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_oduel")
+surface_material_override/0 = SubResource("StandardMaterial3D_ycag2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+process_priority = -1
+process_physics_priority = -1
+shape = SubResource("SphereShape3D_6afsh")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_oduel")
+disabled = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

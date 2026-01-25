@@ -1,0 +1,18 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://cd1wiwk0oxbgm"]
+
+[ext_resource type="Texture2D" uid="uid://rl0028ahf67" path="res://HDRIS/DaySkyHDRI059B_4K_HDR.exr" id="1_s6otu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fv3jr"]
+panorama = ExtResource("1_s6otu")
+
+[sub_resource type="Sky" id="Sky_6nlut"]
+sky_material = SubResource("PanoramaSkyMaterial_fv3jr")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_6nlut")
+sdfgi_use_occlusion = true
+fog_light_color = Color(0.3177297, 0.346549, 0.39138862, 1)
+fog_aerial_perspective = 0.105
+adjustment_enabled = true
+adjustment_saturation = 2.21

@@ -1,0 +1,54 @@
+[gd_scene load_steps=12 format=3 uid="uid://co0j34eqigvdy"]
+
+[ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="1_ge1nq"]
+[ext_resource type="Texture2D" uid="uid://ddrecg3fimuav" path="res://materials/textures/coast_sand_rocks_02_diff_4k.png" id="3_w3lmb"]
+[ext_resource type="Texture2D" uid="uid://4ma3sw3lih63" path="res://materials/textures/coast_sand_rocks_02_ao_4k.png" id="4_3u0s1"]
+[ext_resource type="PackedScene" uid="uid://crhyc1ahd31l0" path="res://Models/Maps/Map_2/MapAydan.glb" id="4_13otf"]
+[ext_resource type="Texture2D" uid="uid://cv7os1n5db501" path="res://materials/textures/coast_sand_rocks_02_nor_gl_4k.png" id="5_f8kx6"]
+[ext_resource type="Texture2D" uid="uid://dpxbifa4urghg" path="res://materials/textures/coast_sand_rocks_02_nor_dx_4k.png" id="6_lboty"]
+[ext_resource type="Texture2D" uid="uid://l3g4wq7i8cgh" path="res://materials/textures/coast_sand_rocks_02_rough_4k.png" id="7_80rt8"]
+[ext_resource type="PackedScene" uid="uid://1xe3tmhji4ay" path="res://Scenes/Cars/raycast_car.tscn" id="8_x2s4o"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dqyidms6geg5o" path="res://Scenes/Occluders/scene2.occ" id="9_13otf"]
+[ext_resource type="PackedScene" uid="uid://cak4j83yvvuye" path="res://Scenes/HUD.tscn" id="10_ge1nq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ge1nq"]
+albedo_texture = ExtResource("3_w3lmb")
+roughness_texture = ExtResource("7_80rt8")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.2
+normal_texture = ExtResource("6_lboty")
+bent_normal_enabled = true
+bent_normal_texture = ExtResource("5_f8kx6")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("4_3u0s1")
+uv1_scale = Vector3(9.99, 9.99, 9.99)
+grow_amount = -0.716
+
+[node name="Scene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_ge1nq")
+
+[node name="Car" parent="." instance=ExtResource("8_x2s4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.713, -24.345694, 20)
+
+[node name="Car2" parent="." instance=ExtResource("8_x2s4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.294914, -24.345694, 20)
+car_id = 1
+
+[node name="MapAydan" parent="." instance=ExtResource("4_13otf")]
+
+[node name="Plan" parent="MapAydan" index="0"]
+material_override = SubResource("StandardMaterial3D_ge1nq")
+
+[node name="StaticBody3D" parent="MapAydan/Plan" index="0"]
+visible = false
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("9_13otf")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("10_ge1nq")]
+
+[editable path="MapAydan"]

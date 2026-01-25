@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ic7ht1s6o81j"]
+
+[ext_resource type="Texture2D" uid="uid://cdig6qunu4b4l" path="res://ressources/damier-carreaux-marbre-pierre-bleue.jpg" id="1_wi45k"]
+
+[resource]
+albedo_color = Color(0.15640333, 0.053149164, 0.12585658, 1)
+albedo_texture = ExtResource("1_wi45k")
+roughness = 0.8
