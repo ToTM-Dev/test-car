@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://brakudkoesmwv"]
+[gd_scene load_steps=57 format=4 uid="uid://brakudkoesmwv"]
 
 [ext_resource type="PackedScene" uid="uid://dq7hgom6h4fqn" path="res://Models/Maps/Map_1/Map.glb" id="1_ggfc1"]
 [ext_resource type="Material" uid="uid://crdfm6udt74u2" path="res://Shader_materials/main.tres" id="2_tg0wh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://d168qjgk2djcl" path="res://Shader_materials/road_center.tres" id="5_affu5"]
 [ext_resource type="Material" uid="uid://du2jeh72qmk5o" path="res://Shader_materials/damier.tres" id="6_jxu45"]
 [ext_resource type="PackedScene" uid="uid://1xe3tmhji4ay" path="res://Scenes/Cars/raycast_car.tscn" id="7_74umr"]
+[ext_resource type="PackedScene" uid="uid://bllnq712q5xvu" path="res://Scenes/Cars/delorean.tscn" id="7_tg0wh"]
 [ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="8_uv8w6"]
 [ext_resource type="ArrayOccluder3D" uid="uid://caf2hi4x1y4uc" path="res://Scenes/Occluders/scene.occ" id="9_gsk05"]
 [ext_resource type="PackedScene" uid="uid://cak4j83yvvuye" path="res://Scenes/HUD.tscn" id="10_ec3ve"]
@@ -642,10 +643,8 @@ transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 40, 433.50247, 122.32996, 63.1
 material_override = SubResource("StandardMaterial3D_fi6k0")
 mesh = SubResource("TextMesh_lnogb")
 
-[node name="Car" parent="." instance=ExtResource("7_74umr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 430.19006, 102.29318, 55.721767)
-jump_force = 7000.0
-tire_turn_speed = 20.0
+[node name="Car" parent="." instance=ExtResource("7_tg0wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 432.87036, 99.85046, 55.429375)
 
 [node name="Car2" parent="." instance=ExtResource("7_74umr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 436.95795, 102.29318, 55.721767)

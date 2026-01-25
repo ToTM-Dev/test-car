@@ -1,12 +1,12 @@
 [gd_resource type="StandardMaterial3D" load_steps=8 format=3 uid="uid://du2jeh72qmk5o"]
 
-[ext_resource type="Texture2D" uid="uid://caj58plunhaky" path="res://materials/Facade018A_1K-JPG_Color.jpg" id="1_b3lsk"]
-[ext_resource type="Texture2D" uid="uid://3acqnn6wfnkw" path="res://materials/Facade018A_1K-JPG_AmbientOcclusion.jpg" id="2_q4t67"]
-[ext_resource type="Texture2D" uid="uid://cgsl3xy52lxtq" path="res://materials/Facade018A_1K-JPG_NormalDX.jpg" id="3_koodp"]
-[ext_resource type="Texture2D" uid="uid://wd832pce0aj7" path="res://materials/Facade018A_1K-JPG_Displacement.jpg" id="4_6lch0"]
-[ext_resource type="Texture2D" uid="uid://djms56qfvby4i" path="res://materials/Facade018A_1K-JPG_Metalness.jpg" id="5_ermt0"]
-[ext_resource type="Texture2D" uid="uid://bjtmiba1ggl7v" path="res://materials/Facade018A_1K-JPG_NormalGL.jpg" id="6_62xej"]
-[ext_resource type="Texture2D" uid="uid://cr2dltjrhfq3v" path="res://materials/Facade018A_1K-JPG_Roughness.jpg" id="7_nfxlg"]
+[ext_resource type="Texture2D" uid="uid://caj58plunhaky" path="res://materials/facade/Facade018A_1K-JPG_Color.jpg" id="1_b3lsk"]
+[ext_resource type="Texture2D" uid="uid://3acqnn6wfnkw" path="res://materials/facade/Facade018A_1K-JPG_AmbientOcclusion.jpg" id="2_q4t67"]
+[ext_resource type="Texture2D" uid="uid://cgsl3xy52lxtq" path="res://materials/facade/Facade018A_1K-JPG_NormalDX.jpg" id="3_koodp"]
+[ext_resource type="Texture2D" uid="uid://wd832pce0aj7" path="res://materials/facade/Facade018A_1K-JPG_Displacement.jpg" id="4_6lch0"]
+[ext_resource type="Texture2D" uid="uid://djms56qfvby4i" path="res://materials/facade/Facade018A_1K-JPG_Metalness.jpg" id="5_ermt0"]
+[ext_resource type="Texture2D" uid="uid://bjtmiba1ggl7v" path="res://materials/facade/Facade018A_1K-JPG_NormalGL.jpg" id="6_62xej"]
+[ext_resource type="Texture2D" uid="uid://cr2dltjrhfq3v" path="res://materials/facade/Facade018A_1K-JPG_Roughness.jpg" id="7_nfxlg"]
 
 [resource]
 albedo_texture = ExtResource("1_b3lsk")

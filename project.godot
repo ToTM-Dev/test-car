@@ -10,17 +10,13 @@ config_version=5
 
 [application]
 
-config/name="test car"
+config/name="Test Drive 0.0.0.10"
 config/description=" "
-config/version="0.0.0.9"
+config/version="0.0.0.10"
 config/tags=PackedStringArray("combat", "course", "test")
 run/main_scene="uid://dacvaa2nv7dbh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://btpwefnvbipse"
-
-[audio]
-
-buses/default_bus_layout=""
 
 [display]
 
@@ -114,7 +110,6 @@ reload_scene={
 common/physics_ticks_per_second=120
 3d/physics_engine="Jolt Physics"
 common/physics_interpolation=true
-common/enable_object_picking=false
 
 [rendering]
 
