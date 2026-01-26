@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cr2dltjrhfq3v"
-path.s3tc="res://.godot/imported/Facade018A_1K-JPG_Roughness.jpg-536ae002ebc17ea20df440b2bfd66ea5.s3tc.ctex"
+path.s3tc="res://.godot/imported/Facade018A_1K-JPG_Roughness.jpg-9eb2c519feda2b329841e7090f616639.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://materials/Facade018A_1K-JPG_Roughness.jpg"
-dest_files=["res://.godot/imported/Facade018A_1K-JPG_Roughness.jpg-536ae002ebc17ea20df440b2bfd66ea5.s3tc.ctex"]
+source_file="res://materials/facade/Facade018A_1K-JPG_Roughness.jpg"
+dest_files=["res://.godot/imported/Facade018A_1K-JPG_Roughness.jpg-9eb2c519feda2b329841e7090f616639.s3tc.ctex"]
 
 [params]
 

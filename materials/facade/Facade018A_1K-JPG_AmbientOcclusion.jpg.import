@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3acqnn6wfnkw"
-path.s3tc="res://.godot/imported/Facade018A_1K-JPG_AmbientOcclusion.jpg-e1688eb6a7e52fa8455cb762d21948ba.s3tc.ctex"
+path.s3tc="res://.godot/imported/Facade018A_1K-JPG_AmbientOcclusion.jpg-17d0439e6716b6732389f183cbf2dd75.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://materials/Facade018A_1K-JPG_AmbientOcclusion.jpg"
-dest_files=["res://.godot/imported/Facade018A_1K-JPG_AmbientOcclusion.jpg-e1688eb6a7e52fa8455cb762d21948ba.s3tc.ctex"]
+source_file="res://materials/facade/Facade018A_1K-JPG_AmbientOcclusion.jpg"
+dest_files=["res://.godot/imported/Facade018A_1K-JPG_AmbientOcclusion.jpg-17d0439e6716b6732389f183cbf2dd75.s3tc.ctex"]
 
 [params]
 
