@@ -1,50 +1,52 @@
 extends RigidBody3D
 class_name RaycastCar
 
-@export_group("Car properties")
-@export var jump_force := 5000.0
-@export var wheels : Array[RaycastWheel]
-@export var acceleration := 30.0
-@export var max_speed := 60.0
-@export var accel_curve : Curve
-@export var tire_turn_speed := 2.0
-@export var tire_max_turn_degrees := 20
-
-@export var skid_marks : Array[GPUParticles3D]
+@export_group("Car physics properties")
+@export var jump_force            : float = 5000
+@export var wheels                : Array[RaycastWheel]
+@export var acceleration          : float = 30
+@export var max_speed             : float = 60.0
+@export var accel_curve           : Curve
+@export var tire_turn_speed       : float = 2
+@export var tire_max_turn_degrees : float = 20
+@export var skid_marks            : Array[GPUParticles3D]
 
 @export_group("Camera Settings")
-@export var camera_min_distance : float = 4
-@export var camera_max_distance : float = 6
-@export var camera_height       : float = 3
-@export var camera_min_fov      : float = 75
-@export var camera_max_fov      : float = 120
-@export var camera_fov_step     : float = 35
+@export var camera_min_distance   : float = 4
+@export var camera_max_distance   : float = 6
+@export var camera_height         : float = 3
+@export_subgroup("Camera FOV")
+@export var camera_min_fov        : float = 75
+@export var camera_max_fov        : float = 120
+@export var camera_fov_step       : float = 35
 
-@export_category("Others")
-@export var car_id      : int = 0
-@export var vibration   : bool = false
+@export_group(	"Others")
+@export var car_id                : int = 0
+@export var vibration             : bool = false
 
-@export_category("Mesh and Materials")
-@export var materials : Array[Material]
+@export_group("Mesh and Materials")
+@export var materials             : Array[Material]
+@export_group("Power Ups and Penalties")
+@export var can_shoot             : bool              = false
+@export var can_nitro             : bool              = true
+@export var reversed_commands     : bool              = false
 
-@onready var mesh : MeshInstance3D = get_child(0)
-@onready var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var total_wheels  : float = wheels.size()
-@onready var timer         : Timer = $RespawnTimer
-@onready var stream_player : AudioStreamPlayer = $AudioStreamPlayer3D
-@onready var animaton_player : AnimationPlayer = $AnimationPlayer
+@onready var mesh                 : MeshInstance3D    = get_child(0)
+@onready var gravity              : float             = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var total_wheels         : float             = wheels.size()
+@onready var timer                : Timer             = $RespawnTimer
+@onready var animaton_player      : AnimationPlayer   = $AnimationPlayer
+@onready var inital_position      : Vector3           = global_position
+@onready var initial_rotation     : Vector3           = global_rotation
 
-@onready var inital_position  : Vector3 = global_position
-@onready var initial_rotation : Vector3 = global_rotation
-
-var motor_input          : float = 0
-var hand_break           : bool  = false
-var is_slipping          : bool  = false
-var grounded             : bool  = false
-var is_braking           : bool  = false
-var controller_connected : bool  = false
-var nitro                : bool  = false
-var speed                : float = 0.0
+var motor_input                   : float = 0
+var hand_break                    : bool  = false
+var is_slipping                   : bool  = false
+var grounded                      : bool  = false
+var is_braking                    : bool  = false
+var controller_connected          : bool  = false
+var nitro                         : bool  = false
+var speed                         : float = 0.0
 
 func _ready() -> void:
 	mesh.set_surface_override_material(0, materials[car_id])
@@ -80,12 +82,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		hand_break = false
 	
 	if event.is_action_pressed("next_car_color"):
-		var material_index = materials.find(mesh.get_surface_override_material(0))
+		var material       = mesh.get_surface_override_material(0)
+		var material_index = materials.find(material)
 		material_index = (material_index + 1) % materials.size()
 		mesh.set_surface_override_material(0, materials[material_index])
 	elif event.is_action_pressed("preview_car_color"):
-		var material_index = materials.find(mesh.get_surface_override_material(0))
-		material_index = (material_index - 1) % materials.size()
+		var material       = mesh.get_surface_override_material(0)
+		var material_index = materials.find(material)
+		material_index     = (material_index - 1) % materials.size()
 		mesh.set_surface_override_material(0, materials[material_index])
 	
 	if event.is_action_pressed("brake"):
@@ -138,7 +142,7 @@ func  _physics_process(_delta: float) -> void:
 	else:
 		motor_input = Input.get_axis("brake","accelerate")
 	
-	if nitro:
+	if nitro and can_nitro:
 		motor_input *= 10
 	
 	var id       : int = 0
@@ -166,10 +170,6 @@ func  _physics_process(_delta: float) -> void:
 		if wheel.is_colliding():
 			grounded = true
 		id += 1
-	
-	var speed_ratio : float = speed / max_speed
-	stream_player.pitch_scale = 1 + accel_curve.sample_baked(speed_ratio) * absf(motor_input)
-	stream_player.volume_db   = absf(accel_curve.sample_baked(speed_ratio) - 0.35) * absf(motor_input) * 50 -5
 	
 	if grounded:
 		center_of_mass = Vector3.ZERO

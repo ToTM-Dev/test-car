@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://1xe3tmhji4ay"]
+[gd_scene load_steps=49 format=4 uid="uid://1xe3tmhji4ay"]
 
 [ext_resource type="Script" uid="uid://b2yik3pv7yu5m" path="res://Scripts/raycast_car.gd" id="1_dm256"]
 [ext_resource type="Curve" uid="uid://monyxc7ks6vc" path="res://ressources/car/car_accel_curve.tres" id="2_33i25"]
@@ -8,13 +8,11 @@
 [ext_resource type="Material" uid="uid://c3sgcii8ytqu3" path="res://Shader_materials/Cars/purple_car.tres" id="3_ll8ha"]
 [ext_resource type="Curve" uid="uid://cvto0xqq6huv" path="res://ressources/car/car_tire_BACK.tres" id="4_3hskg"]
 [ext_resource type="Material" uid="uid://c6iocu2uixm88" path="res://Shader_materials/Cars/red_car.tres" id="4_33i25"]
-[ext_resource type="ArrayOccluder3D" uid="uid://bibhgucav0cu0" path="res://Scenes/Occluders/raycast_car_occluder.occ" id="5_e46hw"]
 [ext_resource type="Material" uid="uid://0qoyth0eft0f" path="res://Shader_materials/Cars/christmas_car.tres" id="6_t8cbp"]
 [ext_resource type="Material" uid="uid://du2jeh72qmk5o" path="res://Shader_materials/damier.tres" id="7_3cmxq"]
 [ext_resource type="Material" uid="uid://b3l4nb16yongu" path="res://Shader_materials/Cars/golden_car.tres" id="8_ajlwp"]
 [ext_resource type="Material" uid="uid://4oxogenaknir" path="res://Shader_materials/Cars/lgbt_car.tres" id="8_t7pyp"]
 [ext_resource type="Material" uid="uid://db4k7s3j0hcj7" path="res://Shader_materials/Cars/wheels_shader.tres" id="9_0hoo8"]
-[ext_resource type="AudioStream" uid="uid://dygs0x8smf265" path="res://Sounds/m2-res_854p.mp3" id="9_ll8ha"]
 [ext_resource type="Material" uid="uid://btwwaadw0kl07" path="res://Shader_materials/Cars/orange_car.tres" id="9_mvi3f"]
 [ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="11_mvi3f"]
 [ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/gun.gd" id="12_6fpat"]
@@ -651,16 +649,6 @@ mesh = SubResource("CylinderMesh_0hoo8")
 script = ExtResource("12_6fpat")
 feedback = 3.0
 left_time = -5.0
-
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21306247, -0.2093054)
-visible = false
-layers = 2
-occluder = ExtResource("5_e46hw")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_ll8ha")
-parameters/looping = true
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 9.0
