@@ -71,8 +71,6 @@ func apply_wheel_physics(car : RaycastCar) -> void:
 	if is_motor and car .motor_input:
 		var speed_ration   : float = speed / car.max_speed
 		var ac             : float = car.accel_curve.sample_baked(speed_ration)
-		if car.nitro:
-			ac *= 10
 
 		var accel_force    : Vector3 = forward_dir * car.acceleration * car.motor_input * ac
 		car.apply_force(accel_force, force_pos)
