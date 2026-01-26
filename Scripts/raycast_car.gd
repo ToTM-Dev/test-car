@@ -138,6 +138,9 @@ func  _physics_process(_delta: float) -> void:
 	else:
 		motor_input = Input.get_axis("brake","accelerate")
 	
+	if nitro:
+		motor_input *= 10
+	
 	var id       : int = 0
 	grounded = false
 	
