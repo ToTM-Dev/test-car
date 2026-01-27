@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dacvaa2nv7dbh"]
+[gd_scene load_steps=39 format=4 uid="uid://dacvaa2nv7dbh"]
 
 [ext_resource type="Script" uid="uid://c7h2gk4k0i8tr" path="res://Scripts/main.gd" id="1_wsu2k"]
 [ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="3_21xkr"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dhj31wi8rodq7" path="res://ressources/desktop-wallpaper-shrek-meme.jpg" id="10_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://pyc6fddgj0ux" path="res://Scenes/booster.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://750syvfslily" path="res://Scenes/power_up.tscn" id="16_k12tt"]
+[ext_resource type="PackedScene" uid="uid://c63dfnfy3ubu4" path="res://Scenes/giant_cone.tscn" id="17_b3802"]
 [ext_resource type="PackedScene" uid="uid://bllnq712q5xvu" path="res://Scenes/Cars/delorean.tscn" id="17_h1bgf"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_hptm8"]
@@ -1298,7 +1299,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_mhumx")
 
 [node name="sideloop" parent="Objects" instance=ExtResource("10_hptm8")]
-transform = Transform3D(2.390407, 0, -15.289264, 0, 15.475, 0, 15.289264, 0, 2.390407, 1213.3188, 0, -308.59186)
+transform = Transform3D(5.998547, 0, -14.265101, 0, 15.475, 0, 14.265101, 0, 5.998547, 953.6018, 0, -478.77402)
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Objects"]
 transform = Transform3D(2.0389323, 0, 0, 0, 0.2928341, -1.5985432, 0, 0.41329378, 1.1326277, 82.867386, 871.49524, 1100.0117)
@@ -1366,6 +1367,15 @@ visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/loop3/Plane3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_q46k1")
+
+[node name="GiantCone" parent="Objects" instance=ExtResource("17_b3802")]
+transform = Transform3D(73.9542, 18.221481, -4.925403, 0, -19.916435, -73.68066, -18.875431, 71.392, -19.297792, 229.97841, 79.136055, 282.8848)
+
+[node name="GiantCone2" parent="Objects" instance=ExtResource("17_b3802")]
+transform = Transform3D(67.58208, 107.20503, -28.97833, -2.9656019e-06, -33.92253, -125.49606, -111.05253, 65.24065, -17.635038, 805.8697, 134.72705, 555.6349)
+
+[node name="GiantCone3" parent="Objects" instance=ExtResource("17_b3802")]
+transform = Transform3D(-44.493176, 112.9243, -46.5667, -8.232669, -52.219368, -118.765976, -121.87109, -37.6993, 25.023655, 579.7375, 684.7964, -156.09567)
 
 [node name="Car" parent="." instance=ExtResource("17_h1bgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.316742, 0.35197935, -6.4136972)
