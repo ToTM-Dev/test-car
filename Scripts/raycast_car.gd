@@ -116,6 +116,9 @@ func _basic_steering_rotation(wheel : RaycastWheel, delta : float) -> void:
 	else:
 		turn_input = Input.get_axis("turn_right", "turn_left") * tire_turn_speed
 		
+	if reversed_commands:
+		controller_turn_input = -controller_turn_input
+		turn_input = -turn_input
 	
 	if absf(controller_turn_input) > 0.1:
 		wheel.rotation.y = move_toward(wheel.rotation.y, -controller_turn_input * 0.01 * tire_max_turn_degrees, tire_turn_speed * delta)
