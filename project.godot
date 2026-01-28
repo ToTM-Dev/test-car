@@ -10,16 +10,21 @@ config_version=5
 
 [application]
 
-config/name="Test Drive 0.0.0.10"
+config/name="Test Drive 0.0.0.11"
 config/description=" "
 config/version="0.0.0.11"
 config/tags=PackedStringArray("combat", "course", "test")
 run/main_scene="uid://dacvaa2nv7dbh"
 config/features=PackedStringArray("4.5", "Forward Plus")
+run/max_fps=30
 config/icon="uid://btpwefnvbipse"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
@@ -61,10 +66,10 @@ jump={
 ]
 }
 brake={
-"deadzone": 0.2,
+"deadzone": 0.8,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":7,"pressure":0.0,"pressed":true,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
 ]
 }
 quit={
@@ -114,14 +119,5 @@ common/physics_interpolation=true
 [rendering]
 
 textures/default_filters/anisotropic_filtering_level=0
-environment/ssao/quality=0
-environment/ssil/quality=0
 anti_aliasing/screen_space_roughness_limiter/enabled=false
-scaling_3d/fsr_sharpness=0.0
-environment/glow/upscale_mode=0
-environment/screen_space_reflection/roughness_quality=0
-environment/subsurface_scattering/subsurface_scattering_quality=0
-global_illumination/sdfgi/frames_to_converge=4
-environment/volumetric_fog/use_filter=0
 occlusion_culling/use_occlusion_culling=true
-mesh_lod/lod_change/threshold_pixels=0.1

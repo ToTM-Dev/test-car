@@ -113,7 +113,7 @@ func _basic_steering_rotation(wheel : RaycastWheel, delta : float) -> void:
 	
 	if controller_connected:
 		controller_turn_input = Input.get_joy_axis(car_id, JOY_AXIS_LEFT_X)
-	else:
+	elif !car_id:
 		turn_input = Input.get_axis("turn_right", "turn_left") * tire_turn_speed
 		
 	if reversed_commands:

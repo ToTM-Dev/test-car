@@ -25,7 +25,7 @@ func _input(event: InputEvent) -> void:
 		new_bullet.global_position = global_position
 		new_bullet.execption = parent
 		new_bullet.apply_central_force(forward_dir * absf(speed + 20) * 300)
-		parent.apply_force(forward_dir * feedback * -10, global_position - parent.global_position)
+		parent.apply_force(-forward_dir * feedback, global_position - parent.global_position)
 
 
 func _process(delta: float) -> void:
