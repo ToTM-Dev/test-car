@@ -22,6 +22,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false
 use_occlusion_culling = true
+scaling_3d_scale = 0.5
 size = Vector2i(2, 2)
 render_target_update_mode = 4
 
