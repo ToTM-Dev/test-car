@@ -1,5 +1,5 @@
 cd "%~dp0"
 git add .
 git commit -a
-git push
+git push origin dev
 pause
