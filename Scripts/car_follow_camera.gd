@@ -46,13 +46,12 @@ func _physics_process(_delta: float) -> void:
 	
 	
 	# Change FOV in function of the speed of the car
-	var forward_dir : Vector3 = - target.global_basis.z.normalized()
-	var speed       : float = target.linear_velocity.dot(forward_dir)
-	fov = min(lerp(fov, (max(speed, 0) / target.max_speed) * fov_step + min_fov,
+	fov = min(lerp(fov, (max(target.speed, 0) / target.max_speed) * fov_step + min_fov,
 			 5 * _delta), max_fov)
 	
 	if speed_label:
 		_update_compteur(speed_label)
+	
 	if respawn_label:
 		if 0.0 < target.timer.time_left and target.timer.time_left < 6.0:
 			respawn_label.visible = true
@@ -62,6 +61,7 @@ func _physics_process(_delta: float) -> void:
 	
 	var turn_input = Input.get_joy_axis(target.car_id, JOY_AXIS_RIGHT_X)
 	var z_turn_input = Input.get_joy_axis(target.car_id, JOY_AXIS_RIGHT_Y)
+	
 	if absf(turn_input) > 0.3 and parent is not SubViewport:
 		parent.global_position = target.global_position
 		top_level = false
