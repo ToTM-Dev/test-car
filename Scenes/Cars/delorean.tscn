@@ -15,7 +15,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c1bsfmtgk7rdc" path="res://ressources/car/delorean/delorean.tres" id="12_do8ac"]
 [ext_resource type="Curve" uid="uid://c2jypntu0uehw" path="res://ressources/car/car_tire_FRONT.tres" id="13_ah6j6"]
 [ext_resource type="Material" uid="uid://db4k7s3j0hcj7" path="res://Shader_materials/Cars/wheels_shader.tres" id="14_4mwed"]
-[ext_resource type="Curve" uid="uid://cvto0xqq6huv" path="res://ressources/car/car_tire_BACK.tres" id="15_uyeyf"]
+[ext_resource type="Curve" uid="uid://pijjnkcix44n" path="res://ressources/car/delorean/car_tire_BACK.tres" id="16_vq1ag"]
 [ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/gun.gd" id="16_ygbgs"]
 [ext_resource type="ArrayOccluder3D" uid="uid://bibhgucav0cu0" path="res://Scenes/Occluders/raycast_car_occluder.occ" id="17_w0ngs"]
 
@@ -362,7 +362,7 @@ over_extend = 0.2
 wheel_radius = 0.325
 z_brake_traction = 1.0
 is_motor = true
-grip_curve = ExtResource("15_uyeyf")
+grip_curve = ExtResource("16_vq1ag")
 
 [node name="Cylinder_003" type="MeshInstance3D" parent="WheelRL"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -392,7 +392,7 @@ over_extend = 0.2
 wheel_radius = 0.325
 z_brake_traction = 1.0
 is_motor = true
-grip_curve = ExtResource("15_uyeyf")
+grip_curve = ExtResource("16_vq1ag")
 
 [node name="Cylinder_003" type="MeshInstance3D" parent="WheelRR"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
