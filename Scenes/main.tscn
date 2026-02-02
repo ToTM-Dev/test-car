@@ -1,6 +1,5 @@
-[gd_scene load_steps=40 format=4 uid="uid://dacvaa2nv7dbh"]
+[gd_scene load_steps=39 format=4 uid="uid://dacvaa2nv7dbh"]
 
-[ext_resource type="Script" uid="uid://c7h2gk4k0i8tr" path="res://Scripts/main.gd" id="1_wsu2k"]
 [ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="3_21xkr"]
 [ext_resource type="ArrayOccluder3D" uid="uid://bg5gr5l3p2bb0" path="res://Scenes/Occluders/main.occ" id="4_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cur6yj4ktxjud" path="res://Scenes/cone_circulation.tscn" id="4_hptm8"]
@@ -204,7 +203,6 @@ data = PackedVector3Array(-5.3401737, 1.4862876e-06, -66.72269, -35.41603, 3.846
 margin = 0.5
 
 [node name="Scene" type="Node3D"]
-script = ExtResource("1_wsu2k")
 
 [node name="test_map" parent="." instance=ExtResource("8_344ge")]
 
