@@ -29,6 +29,7 @@ class_name RaycastCar
 @export_group("Power Ups and Penalties")
 @export var can_shoot             : bool              = false
 @export var can_nitro             : bool              = true
+@export var nitro_strength        : float             = 10
 @export var reversed_commands     : bool              = false
 
 @onready var mesh                 : MeshInstance3D    = get_child(0)
@@ -73,7 +74,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action_pressed("jump") and grounded:
-		apply_central_force(Vector3(0,1,0) * jump_force)
+		var ratio : float = motor_input
+		if nitro:
+			ratio /= nitro_strength
+		apply_central_force(Vector3(0,1,0) * jump_force * ratio)
 	
 	if event.is_action_pressed("handbreak"):
 		hand_break = true
@@ -146,7 +150,7 @@ func  _physics_process(_delta: float) -> void:
 		motor_input = Input.get_axis("brake","accelerate")
 	
 	if nitro and can_nitro:
-		motor_input *= 10
+		motor_input *= nitro_strength
 	
 	var id       : int = 0
 	grounded = false

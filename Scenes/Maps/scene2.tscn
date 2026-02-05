@@ -38,6 +38,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.713, -24.345694, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.294914, -24.345694, 20)
 car_id = 1
 
+[node name="Car3" parent="." instance=ExtResource("8_x2s4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.461586, -24.345694, 20)
+car_id = 2
+
+[node name="Car4" parent="." instance=ExtResource("8_x2s4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.222043, -24.345694, 20)
+car_id = 3
+
 [node name="MapAydan" parent="." instance=ExtResource("4_13otf")]
 
 [node name="Plan" parent="MapAydan" index="0"]

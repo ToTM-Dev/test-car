@@ -11,12 +11,12 @@
 [ext_resource type="Material" uid="uid://ic7ht1s6o81j" path="res://Shader_materials/road_edges.tres" id="9_fdnlq"]
 [ext_resource type="Material" uid="uid://d168qjgk2djcl" path="res://Shader_materials/road_center.tres" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://mvs7fh0a3g76" path="res://Models/Prefabs/sideloop.glb" id="10_hptm8"]
-[ext_resource type="Texture2D" uid="uid://dhj31wi8rodq7" path="res://ressources/desktop-wallpaper-shrek-meme.jpg" id="10_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://dhj31wi8rodq7" path="res://ressources/shrek/desktop-wallpaper-shrek-meme.jpg" id="10_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://pyc6fddgj0ux" path="res://Scenes/booster.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://750syvfslily" path="res://Scenes/power_up.tscn" id="16_k12tt"]
 [ext_resource type="PackedScene" uid="uid://c63dfnfy3ubu4" path="res://Scenes/giant_cone.tscn" id="17_b3802"]
 [ext_resource type="PackedScene" uid="uid://bllnq712q5xvu" path="res://Scenes/Cars/delorean.tscn" id="17_h1bgf"]
-[ext_resource type="Script" uid="uid://epefa5f5d4y1" path="res://Scripts/game_manager.gd" id="18_b3802"]
+[ext_resource type="PackedScene" uid="uid://j67t0rgrybcj" path="res://Scenes/menu.tscn" id="18_fevyy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7mycd"]
 lightmap_size_hint = Vector2i(204, 606)
@@ -1383,7 +1383,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.79301, 0.05, 60.953377)
 shape = SubResource("WorldBoundaryShape3D_h1bgf")
 
 [node name="Car" parent="." instance=ExtResource("17_h1bgf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.316742, 0.35197935, -6.4136972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.316742, 11.132262, -6.4136972)
 
 [node name="Car2" parent="." instance=ExtResource("7_6bp64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.461561, 0.71177936, -7.003299)
@@ -1396,10 +1396,6 @@ car_id = 2
 [node name="Car4" parent="." instance=ExtResource("7_6bp64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.653639, 0.71177936, -7.003299)
 car_id = 3
-
-[node name="CanvasLayer" parent="." instance=ExtResource("5_kry3j")]
-process_priority = -2
-process_physics_priority = -2
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("4_6bp64")
@@ -1414,8 +1410,9 @@ light_bake_mode = 1
 shadow_enabled = true
 shadow_reverse_cull_face = true
 
-[node name="Game Manager" type="Node" parent="."]
-script = ExtResource("18_b3802")
+[node name="CanvasLayer" parent="." instance=ExtResource("5_kry3j")]
+
+[node name="Menu" parent="." instance=ExtResource("18_fevyy")]
 
 [editable path="test_map"]
 [editable path="Objects/loop"]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhj31wi8rodq7"
-path.s3tc="res://.godot/imported/desktop-wallpaper-shrek-meme.jpg-5896fba1e9edffd0fb03c92d4541f9a9.s3tc.ctex"
+uid="uid://ctlruyh3ef8ch"
+path.s3tc="res://.godot/imported/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp-5be7613407774f4fb94e979ce17bf93d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ressources/desktop-wallpaper-shrek-meme.jpg"
-dest_files=["res://.godot/imported/desktop-wallpaper-shrek-meme.jpg-5896fba1e9edffd0fb03c92d4541f9a9.s3tc.ctex"]
+source_file="res://ressources/shrek/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp"
+dest_files=["res://.godot/imported/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp-5be7613407774f4fb94e979ce17bf93d.s3tc.ctex"]
 
 [params]
 

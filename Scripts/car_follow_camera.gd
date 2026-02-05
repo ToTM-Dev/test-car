@@ -19,7 +19,7 @@ var respawn_label : Label
 func  _ready() -> void:
 	_update_settings()
 	speed_label = $"../../Control/Label"
-	respawn_label = $"../../Control/AspectRatioContainer/CenterContainer/Label"
+	respawn_label = $"../../Control/CenterContainer/RespawnLabel"
 	
 
 
@@ -77,7 +77,7 @@ func _physics_process(_delta: float) -> void:
 		top_level = true
 
 func _update_compteur(compteur : Label) ->void:
-	var speed_km_h = target.speed * 2
+	var speed_km_h = target.speed
 	compteur.text = str(round(speed_km_h)) + "Km/H"
 
 func _update_settings():

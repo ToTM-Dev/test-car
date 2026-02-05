@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://bllnq712q5xvu"]
 
 [ext_resource type="Script" uid="uid://b2yik3pv7yu5m" path="res://Scripts/raycast_car.gd" id="1_vq1ag"]
-[ext_resource type="Curve" uid="uid://monyxc7ks6vc" path="res://ressources/car/car_accel_curve.tres" id="2_do8ac"]
+[ext_resource type="Curve" uid="uid://10ms5mnl6lxm" path="res://ressources/car/delorean/new_curve.tres" id="2_vq1ag"]
 [ext_resource type="Material" uid="uid://dy5cplckkm4jy" path="res://Shader_materials/Cars/blue_car.tres" id="3_6lc8r"]
 [ext_resource type="Material" uid="uid://c3sgcii8ytqu3" path="res://Shader_materials/Cars/purple_car.tres" id="4_yxwta"]
 [ext_resource type="Material" uid="uid://c6iocu2uixm88" path="res://Shader_materials/Cars/red_car.tres" id="5_pr4cr"]
@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://4oxogenaknir" path="res://Shader_materials/Cars/lgbt_car.tres" id="8_vsrr6"]
 [ext_resource type="Material" uid="uid://btwwaadw0kl07" path="res://Shader_materials/Cars/orange_car.tres" id="9_kscks"]
 [ext_resource type="Material" uid="uid://b3l4nb16yongu" path="res://Shader_materials/Cars/golden_car.tres" id="10_v2mf2"]
-[ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="11_dsw5d"]
+[ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/shrek/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="11_dsw5d"]
 [ext_resource type="Script" uid="uid://c7tt8ervsa1qj" path="res://Scripts/raycast_wheel.gd" id="12_0ye4x"]
 [ext_resource type="ArrayMesh" uid="uid://c1bsfmtgk7rdc" path="res://ressources/car/delorean/delorean.tres" id="12_do8ac"]
 [ext_resource type="Curve" uid="uid://c2jypntu0uehw" path="res://ressources/car/car_tire_FRONT.tres" id="13_ah6j6"]
@@ -270,13 +270,15 @@ script = ExtResource("1_vq1ag")
 jump_force = 13000.0
 wheels = [NodePath("WheelFL"), NodePath("WheelFR"), NodePath("WheelRL"), NodePath("WheelRR")]
 acceleration = 600.0
-max_speed = 70.0
-accel_curve = ExtResource("2_do8ac")
+max_speed = 200.0
+accel_curve = ExtResource("2_vq1ag")
+tire_max_turn_degrees = 25.0
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
 camera_max_distance = 5.0
 camera_height = 1.8
 vibration = true
 materials = Array[Material]([ExtResource("3_6lc8r"), ExtResource("4_yxwta"), ExtResource("5_pr4cr"), ExtResource("6_1kcfq"), ExtResource("7_a70gl"), ExtResource("8_vsrr6"), ExtResource("9_kscks"), ExtResource("10_v2mf2"), SubResource("StandardMaterial3D_w7to3")])
+nitro_strength = 5.0
 
 [node name="Carrosserie" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37302065, 0)
@@ -300,7 +302,7 @@ spring_damping = 9.0
 rest_dist = 0.1
 over_extend = 0.2
 wheel_radius = 0.325
-z_brake_traction = 1.0
+z_brake_traction = 0.2
 is_steer = true
 grip_curve = ExtResource("13_ah6j6")
 
@@ -330,7 +332,7 @@ spring_damping = 9.0
 rest_dist = 0.1
 over_extend = 0.2
 wheel_radius = 0.325
-z_brake_traction = 1.0
+z_brake_traction = 0.2
 is_steer = true
 grip_curve = ExtResource("13_ah6j6")
 
@@ -360,7 +362,7 @@ spring_damping = 9.0
 rest_dist = 0.1
 over_extend = 0.2
 wheel_radius = 0.325
-z_brake_traction = 1.0
+z_brake_traction = 0.2
 is_motor = true
 grip_curve = ExtResource("16_vq1ag")
 
@@ -390,7 +392,7 @@ spring_damping = 9.0
 rest_dist = 0.1
 over_extend = 0.2
 wheel_radius = 0.325
-z_brake_traction = 1.0
+z_brake_traction = 0.2
 is_motor = true
 grip_curve = ExtResource("16_vq1ag")
 

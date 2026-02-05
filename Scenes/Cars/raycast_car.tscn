@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://1xe3tmhji4ay"]
+[gd_scene load_steps=46 format=4 uid="uid://1xe3tmhji4ay"]
 
 [ext_resource type="Script" uid="uid://b2yik3pv7yu5m" path="res://Scripts/raycast_car.gd" id="1_dm256"]
 [ext_resource type="Curve" uid="uid://monyxc7ks6vc" path="res://ressources/car/car_accel_curve.tres" id="2_33i25"]
@@ -14,9 +14,9 @@
 [ext_resource type="Material" uid="uid://4oxogenaknir" path="res://Shader_materials/Cars/lgbt_car.tres" id="8_t7pyp"]
 [ext_resource type="Material" uid="uid://db4k7s3j0hcj7" path="res://Shader_materials/Cars/wheels_shader.tres" id="9_0hoo8"]
 [ext_resource type="Material" uid="uid://btwwaadw0kl07" path="res://Shader_materials/Cars/orange_car.tres" id="9_mvi3f"]
-[ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="11_mvi3f"]
+[ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/shrek/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="11_mvi3f"]
 [ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/gun.gd" id="12_6fpat"]
-[ext_resource type="ArrayMesh" uid="uid://df2txpsw7c3fg" path="res://ressources/car/ouature.tres" id="12_ocpyo"]
+[ext_resource type="ArrayMesh" uid="uid://dk2r1f0nsfuyv" path="res://ressources/car/ouature.tres" id="12_ocpyo"]
 [ext_resource type="Shape3D" uid="uid://wfjka2h3hrys" path="res://ressources/car/ouature_collision.tres" id="13_7rplp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hvwjs"]
@@ -31,6 +31,11 @@ emission_enabled = true
 emission_energy_multiplier = 8.8
 emission_texture = ExtResource("11_mvi3f")
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rplp"]
+albedo_color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+metallic = 1.0
+roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0hxr"]
 
@@ -401,6 +406,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4929375, -0.014720589)
 layers = 2
 mesh = ExtResource("12_ocpyo")
 skeleton = NodePath("")
+surface_material_override/2 = SubResource("StandardMaterial3D_7rplp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4929375, -0.014720589)
