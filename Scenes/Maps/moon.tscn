@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0uvk3tw5bbps"]
+
+[ext_resource type="Script" uid="uid://cl0xmlsr0w17s" path="res://Scripts/level.gd" id="1_62w06"]
+[ext_resource type="PackedScene" uid="uid://qtmlhtlwl3nf" path="res://Models/Maps/Moon/map.glb" id="6_y0t37"]
+[ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Prefabs/car_spawner.tscn" id="14_y5xhd"]
+[ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="16_wuwh8"]
+[ext_resource type="PackedScene" uid="uid://cak4j83yvvuye" path="res://Scenes/Menus/HUD.tscn" id="17_3iufv"]
+[ext_resource type="PackedScene" uid="uid://j67t0rgrybcj" path="res://Scenes/Menus/menu.tscn" id="18_s37fg"]
+
+[node name="Scene" type="Node3D"]
+script = ExtResource("1_62w06")
+
+[node name="CarSpawner" parent="." instance=ExtResource("14_y5xhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.667431, 5, -7.0468407)
+
+[node name="CarSpawner2" parent="." instance=ExtResource("14_y5xhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41473, 5, -7.0468407)
+player_id = 1
+
+[node name="CarSpawner3" parent="." instance=ExtResource("14_y5xhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.970896, 5, -7.0468407)
+player_id = 2
+
+[node name="CarSpawner4" parent="." instance=ExtResource("14_y5xhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7621, 5, -7.0468407)
+player_id = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("16_wuwh8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.52991927, 0.62424576, -0.57402337, 0, 0.67687595, 0.7360971, 0.8480481, -0.39007205, 0.3586896, 0, 0, 0)
+light_bake_mode = 1
+shadow_enabled = true
+shadow_reverse_cull_face = true
+
+[node name="HUD" parent="." instance=ExtResource("17_3iufv")]
+
+[node name="Menu" parent="." instance=ExtResource("18_s37fg")]
+
+[node name="map" parent="." instance=ExtResource("6_y0t37")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -650, 0)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://gegap43uxso7"
+path="res://.godot/imported/fightin' over da piano be like.ogg-cd90f3ee55bed65cf3f3169dea529941.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/fightin' over da piano be like.ogg"
+dest_files=["res://.godot/imported/fightin' over da piano be like.ogg-cd90f3ee55bed65cf3f3169dea529941.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

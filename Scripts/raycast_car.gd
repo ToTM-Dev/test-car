@@ -2,7 +2,6 @@ extends RigidBody3D
 class_name RaycastCar
 
 @export_group("Car physics properties")
-@export var jump_force            : float = 5000
 @export var wheels                : Array[RaycastWheel]
 @export var acceleration          : float = 30
 @export var max_speed             : float = 60.0
@@ -20,13 +19,17 @@ class_name RaycastCar
 @export var camera_max_fov        : float = 120
 @export var camera_fov_step       : float = 35
 
-@export_group(	"Others")
+@export_group("Others")
 @export var car_id                : int = 0
 @export var vibration             : bool = false
 
 @export_group("Mesh and Materials")
 @export var materials             : Array[Material]
+
 @export_group("Power Ups and Penalties")
+@export var can_jump              : bool              = true
+@export var jump_range            : int               = 10
+@export var jump_strength         : float             = 5000
 @export var can_shoot             : bool              = false
 @export var can_nitro             : bool              = true
 @export var nitro_strength        : float             = 10
@@ -37,47 +40,45 @@ class_name RaycastCar
 @onready var total_wheels         : float             = wheels.size()
 @onready var timer                : Timer             = $RespawnTimer
 @onready var animaton_player      : AnimationPlayer   = $AnimationPlayer
-@onready var inital_position      : Vector3           = global_position
-@onready var initial_rotation     : Vector3           = global_rotation
+
+var inital_position               : Vector3 = Vector3.ZERO
+var initial_rotation              : Vector3 = Vector3.ZERO
 
 var motor_input                   : float = 0
+var speed                         : float = 0.0
 var hand_break                    : bool  = false
 var is_slipping                   : bool  = false
-var grounded                      : bool  = false
 var is_braking                    : bool  = false
+var grounded                      : bool  = false
 var controller_connected          : bool  = false
 var nitro                         : bool  = false
-var speed                         : float = 0.0
+var jump                          : bool  = false
+var left_jumps                    : int   = 0
+var controller                    : int   = 0 # -1 if is keyboard or > 0 if it's joypads
 
 func _ready() -> void:
 	mesh.set_surface_override_material(0, materials[car_id])
-	if Input.get_connected_joypads():
-		controller_connected = true
 	
-	if car_id and Input.get_connected_joypads().size() < car_id + 1:
-		visible = false
-		process_mode = Node.PROCESS_MODE_DISABLED
+	controller = GameManager.players_controllers[car_id]
 	
-	inital_position  = global_position
-	initial_rotation = global_rotation
+	if inital_position == Vector3.ZERO and initial_rotation == Vector3.ZERO:
+		inital_position  = global_position
+		initial_rotation = global_rotation
+	else:
+		global_position = inital_position
+		global_rotation = initial_rotation
 	
 	animaton_player.play("hide_gun")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("quit"):
-			get_tree().quit()
-	
 	if event.is_action_pressed("reload_scene"):
 		get_tree().reload_current_scene()
 	
-	if controller_connected and not event.device == car_id:
-		return
 	
-	if event.is_action_pressed("jump") and grounded:
-		var ratio : float = motor_input
-		if nitro:
-			ratio /= nitro_strength
-		apply_central_force(Vector3(0,1,0) * jump_force * ratio)
+	if event.is_action_pressed("jump") and grounded and can_jump:
+		jump = true
+	elif event.is_action_released("jump"):
+		jump = false
 	
 	if event.is_action_pressed("handbreak"):
 		hand_break = true
@@ -101,7 +102,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("brake"):
 		is_braking = false
 	
-	if event.is_action_pressed("nitro"):
+	if event.is_action_pressed("nitro") and can_nitro:
 		if not nitro and vibration:
 			Input.start_joy_vibration(car_id, 1.0,0.5,0.5)
 		nitro = true
@@ -113,21 +114,19 @@ func _basic_steering_rotation(wheel : RaycastWheel, delta : float) -> void:
 	if not wheel.is_steer: return
 
 	var turn_input : float = 0.0
-	var controller_turn_input : float = 0.0
 	
-	if controller_connected:
-		controller_turn_input = Input.get_joy_axis(car_id, JOY_AXIS_LEFT_X)
-	elif !car_id:
+	if controller == -1:
 		turn_input = Input.get_axis("turn_right", "turn_left") * tire_turn_speed
+	elif controller > -1 :
+		turn_input = Input.get_joy_axis(controller, JOY_AXIS_LEFT_X)
 		
 	if reversed_commands:
-		controller_turn_input = -controller_turn_input
 		turn_input = -turn_input
 	
-	if absf(controller_turn_input) > 0.1:
-		wheel.rotation.y = move_toward(wheel.rotation.y, -controller_turn_input * 0.01 * tire_max_turn_degrees, tire_turn_speed * delta)
-	elif turn_input:
-		wheel.rotation.y = wheel.rotation.y + turn_input * delta	
+	if absf(turn_input) > 0.1 and controller > -1:
+			wheel.rotation.y = move_toward(wheel.rotation.y, -turn_input * 0.01 * tire_max_turn_degrees, tire_turn_speed * delta)
+	elif turn_input and controller == -1:
+		wheel.rotation.y = wheel.rotation.y + turn_input * delta
 		wheel.rotation.y = clampf(wheel.rotation.y , deg_to_rad(-tire_max_turn_degrees), deg_to_rad(tire_max_turn_degrees))
 	else:
 		wheel.rotation.y = move_toward(wheel.rotation.y, 0, tire_turn_speed * delta)
@@ -138,18 +137,18 @@ func _basic_steering_rotation(wheel : RaycastWheel, delta : float) -> void:
 func  _physics_process(_delta: float) -> void:
 	
 	speed = linear_velocity.dot(-global_basis.z.normalized())
-	if get_colliding_bodies() and speed  > 1 and vibration:
-		Input.start_joy_vibration(car_id, 0.2, 0.1 , 0.01)
+	if get_colliding_bodies() and speed  > 10 and vibration:
+		Input.start_joy_vibration(controller, 0.2 * speed / max_speed, 0.1 * speed / max_speed, 0.01)
 
 	
-	if controller_connected:
-		motor_input = Input.get_joy_axis(car_id, JOY_AXIS_TRIGGER_RIGHT) - Input.get_joy_axis(car_id, JOY_AXIS_TRIGGER_LEFT)
+	if controller > -1:
+		motor_input = Input.get_joy_axis(controller, JOY_AXIS_TRIGGER_RIGHT) - Input.get_joy_axis(controller, JOY_AXIS_TRIGGER_LEFT)
 		if absf(motor_input) < 0.1:
 			motor_input = 0.0
 	else:
 		motor_input = Input.get_axis("brake","accelerate")
 	
-	if nitro and can_nitro:
+	if nitro:
 		motor_input *= nitro_strength
 	
 	var id       : int = 0
@@ -165,10 +164,10 @@ func  _physics_process(_delta: float) -> void:
 			wheel.is_braking = false
 		
 		# Skid mark
-		skid_marks[id].global_position = wheel.get_collision_point() + Vector3.UP * 0.05
+		skid_marks[id].global_position = wheel.get_collision_point() + Vector3.UP * 0.001
 		skid_marks[id].look_at(skid_marks[id].global_position + global_basis.z)
 		
-		if not hand_break and wheel.grip_factor < 0.2:
+		if not hand_break and wheel.grip_factor < 0.1:
 			is_slipping = false
 			skid_marks[id].emitting = false
 		if hand_break and not skid_marks[id].emitting:
@@ -178,12 +177,19 @@ func  _physics_process(_delta: float) -> void:
 			grounded = true
 		id += 1
 	
+	if jump and left_jumps > 0:
+		left_jumps -= 1
+		#apply_central_force(Vector3(0,1,0) * jump_strength)
+		linear_velocity.y = jump_strength
+		linear_velocity.y += left_jumps / 3
+	
 	if grounded:
+		left_jumps = jump_range
 		center_of_mass = Vector3.ZERO
 		if not timer.is_stopped():
 			timer.stop()
 			if vibration:
-				Input.start_joy_vibration(car_id, 1, 0.4 , 0.1)
+				Input.start_joy_vibration(controller, 1, 0.4 , 0.1)
 	else:
 		if timer.is_stopped():
 			timer.start()

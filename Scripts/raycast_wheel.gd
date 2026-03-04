@@ -85,11 +85,12 @@ func apply_wheel_physics(car : RaycastCar) -> void:
 	
 	var x_traction     : float = grip_curve.sample_baked(grip_factor)
 	
-	
-	if car.hand_break :
-		x_traction     *= 0.1
-	elif car.is_slipping :
-		x_traction     *= 0.2
+	if !is_steer:
+		if car.hand_break:
+			x_traction     = 0.1
+		elif car.is_slipping :
+			x_traction     = 0.3
+		
 	
 	var gravity        : float = -car.get_gravity().y
 	var x_force        : Vector3 = -global_basis.x * steering_x_vel * x_traction * ((car.mass * gravity)/car.total_wheels)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://bllnq712q5xvu"]
+[gd_scene load_steps=38 format=3 uid="uid://bllnq712q5xvu"]
 
 [ext_resource type="Script" uid="uid://b2yik3pv7yu5m" path="res://Scripts/raycast_car.gd" id="1_vq1ag"]
-[ext_resource type="Curve" uid="uid://10ms5mnl6lxm" path="res://ressources/car/delorean/new_curve.tres" id="2_vq1ag"]
+[ext_resource type="Curve" uid="uid://10ms5mnl6lxm" path="res://ressources/car/delorean/accel_curve.tres" id="2_vq1ag"]
 [ext_resource type="Material" uid="uid://dy5cplckkm4jy" path="res://Shader_materials/Cars/blue_car.tres" id="3_6lc8r"]
 [ext_resource type="Material" uid="uid://c3sgcii8ytqu3" path="res://Shader_materials/Cars/purple_car.tres" id="4_yxwta"]
 [ext_resource type="Material" uid="uid://c6iocu2uixm88" path="res://Shader_materials/Cars/red_car.tres" id="5_pr4cr"]
@@ -13,11 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/shrek/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="11_dsw5d"]
 [ext_resource type="Script" uid="uid://c7tt8ervsa1qj" path="res://Scripts/raycast_wheel.gd" id="12_0ye4x"]
 [ext_resource type="ArrayMesh" uid="uid://c1bsfmtgk7rdc" path="res://ressources/car/delorean/delorean.tres" id="12_do8ac"]
-[ext_resource type="Curve" uid="uid://c2jypntu0uehw" path="res://ressources/car/car_tire_FRONT.tres" id="13_ah6j6"]
 [ext_resource type="Material" uid="uid://db4k7s3j0hcj7" path="res://Shader_materials/Cars/wheels_shader.tres" id="14_4mwed"]
+[ext_resource type="Curve" uid="uid://c2klwyi70fteb" path="res://ressources/car/delorean/car_tire_FRONT.tres" id="14_do8ac"]
 [ext_resource type="Curve" uid="uid://pijjnkcix44n" path="res://ressources/car/delorean/car_tire_BACK.tres" id="16_vq1ag"]
-[ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/gun.gd" id="16_ygbgs"]
-[ext_resource type="ArrayOccluder3D" uid="uid://bibhgucav0cu0" path="res://Scenes/Occluders/raycast_car_occluder.occ" id="17_w0ngs"]
+[ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/Prefabs/gun.gd" id="16_ygbgs"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bibhgucav0cu0" path="res://Scenes/Maps/Occluders/raycast_car_occluder.occ" id="17_w0ngs"]
+[ext_resource type="AudioStream" uid="uid://b7t0e015vd7lx" path="res://Sounds/FLORIAN-cri.mp3" id="19_do8ac"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hvwjs"]
 friction = 0.5
@@ -267,17 +268,19 @@ contact_monitor = true
 max_contacts_reported = 2
 linear_damp_mode = 1
 script = ExtResource("1_vq1ag")
-jump_force = 13000.0
 wheels = [NodePath("WheelFL"), NodePath("WheelFR"), NodePath("WheelRL"), NodePath("WheelRR")]
 acceleration = 600.0
 max_speed = 200.0
 accel_curve = ExtResource("2_vq1ag")
 tire_max_turn_degrees = 25.0
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
-camera_max_distance = 5.0
-camera_height = 1.8
+camera_min_distance = 5.0
+camera_max_distance = 8.0
+camera_height = 4.0
 vibration = true
 materials = Array[Material]([ExtResource("3_6lc8r"), ExtResource("4_yxwta"), ExtResource("5_pr4cr"), ExtResource("6_1kcfq"), ExtResource("7_a70gl"), ExtResource("8_vsrr6"), ExtResource("9_kscks"), ExtResource("10_v2mf2"), SubResource("StandardMaterial3D_w7to3")])
+jump_range = 150
+jump_strength = 20.0
 nitro_strength = 5.0
 
 [node name="Carrosserie" type="MeshInstance3D" parent="."]
@@ -300,11 +303,11 @@ shape_offset = 0.2
 spring_strength = 500.0
 spring_damping = 9.0
 rest_dist = 0.1
-over_extend = 0.2
+over_extend = 0.1
 wheel_radius = 0.325
 z_brake_traction = 0.2
 is_steer = true
-grip_curve = ExtResource("13_ah6j6")
+grip_curve = ExtResource("14_do8ac")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="WheelFL"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -330,11 +333,11 @@ shape_offset = 0.2
 spring_strength = 500.0
 spring_damping = 9.0
 rest_dist = 0.1
-over_extend = 0.2
+over_extend = 0.1
 wheel_radius = 0.325
 z_brake_traction = 0.2
 is_steer = true
-grip_curve = ExtResource("13_ah6j6")
+grip_curve = ExtResource("14_do8ac")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="WheelFR"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -360,7 +363,7 @@ shape_offset = 0.2
 spring_strength = 500.0
 spring_damping = 9.0
 rest_dist = 0.1
-over_extend = 0.2
+over_extend = 0.1
 wheel_radius = 0.325
 z_brake_traction = 0.2
 is_motor = true
@@ -390,7 +393,7 @@ shape_offset = 0.2
 spring_strength = 500.0
 spring_damping = 9.0
 rest_dist = 0.1
-over_extend = 0.2
+over_extend = 0.1
 wheel_radius = 0.325
 z_brake_traction = 0.2
 is_motor = true
@@ -416,29 +419,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37302065, -0.49758482)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="SkidMarks"]
 emitting = false
-amount = 1000
-lifetime = 1.5
+amount = 500
 process_material = SubResource("ParticleProcessMaterial_hvwjs")
 draw_pass_1 = SubResource("QuadMesh_ac15w")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="SkidMarks"]
 emitting = false
-amount = 1000
-lifetime = 1.5
+amount = 500
 process_material = SubResource("ParticleProcessMaterial_hvwjs")
 draw_pass_1 = SubResource("QuadMesh_ac15w")
 
 [node name="GPUParticles3D3" type="GPUParticles3D" parent="SkidMarks"]
 emitting = false
-amount = 1000
-lifetime = 1.5
+amount = 500
 process_material = SubResource("ParticleProcessMaterial_hvwjs")
 draw_pass_1 = SubResource("QuadMesh_ac15w")
 
 [node name="GPUParticles3D4" type="GPUParticles3D" parent="SkidMarks"]
 emitting = false
-amount = 1000
-lifetime = 1.5
+amount = 500
 process_material = SubResource("ParticleProcessMaterial_hvwjs")
 draw_pass_1 = SubResource("QuadMesh_ac15w")
 
@@ -462,5 +461,13 @@ one_shot = true
 libraries = {
 &"": SubResource("AnimationLibrary_rk1ey")
 }
+
+[node name="FlorianCri" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_do8ac")
+pitch_scale = 1.6
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5024158, 0)
+aabb = AABB(-1, -0.92808306, -2.4260094, 2, 1.8561661, 4.852019)
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

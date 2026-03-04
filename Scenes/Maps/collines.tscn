@@ -1,0 +1,73 @@
+[gd_scene load_steps=14 format=3 uid="uid://co0j34eqigvdy"]
+
+[ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="1_ge1nq"]
+[ext_resource type="Script" uid="uid://cl0xmlsr0w17s" path="res://Scripts/level.gd" id="1_hptx7"]
+[ext_resource type="Texture2D" uid="uid://ddrecg3fimuav" path="res://materials/textures/coast_sand_rocks_02_diff_4k.png" id="3_w3lmb"]
+[ext_resource type="Texture2D" uid="uid://4ma3sw3lih63" path="res://materials/textures/coast_sand_rocks_02_ao_4k.png" id="4_3u0s1"]
+[ext_resource type="PackedScene" uid="uid://crhyc1ahd31l0" path="res://Models/Maps/Map_2/MapAydan.glb" id="4_13otf"]
+[ext_resource type="Texture2D" uid="uid://cv7os1n5db501" path="res://materials/textures/coast_sand_rocks_02_nor_gl_4k.png" id="5_f8kx6"]
+[ext_resource type="Texture2D" uid="uid://dpxbifa4urghg" path="res://materials/textures/coast_sand_rocks_02_nor_dx_4k.png" id="6_lboty"]
+[ext_resource type="Texture2D" uid="uid://l3g4wq7i8cgh" path="res://materials/textures/coast_sand_rocks_02_rough_4k.png" id="7_80rt8"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dqyidms6geg5o" path="res://Scenes/Maps/Occluders/scene2.occ" id="9_13otf"]
+[ext_resource type="PackedScene" uid="uid://cak4j83yvvuye" path="res://Scenes/Menus/HUD.tscn" id="10_ge1nq"]
+[ext_resource type="PackedScene" uid="uid://j67t0rgrybcj" path="res://Scenes/Menus/menu.tscn" id="11_qoduf"]
+[ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Prefabs/car_spawner.tscn" id="12_hptx7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ge1nq"]
+albedo_texture = ExtResource("3_w3lmb")
+roughness_texture = ExtResource("7_80rt8")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.2
+normal_texture = ExtResource("6_lboty")
+bent_normal_enabled = true
+bent_normal_texture = ExtResource("5_f8kx6")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("4_3u0s1")
+uv1_scale = Vector3(9.99, 9.99, 9.99)
+grow_amount = -0.716
+
+[node name="Scene" type="Node3D"]
+script = ExtResource("1_hptx7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_ge1nq")
+
+[node name="MapAydan" parent="." instance=ExtResource("4_13otf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Plan" parent="MapAydan" index="0"]
+material_override = SubResource("StandardMaterial3D_ge1nq")
+
+[node name="StaticBody3D" parent="MapAydan/Plan" index="0"]
+visible = false
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+visible = false
+occluder = ExtResource("9_13otf")
+
+[node name="HUD" parent="." instance=ExtResource("10_ge1nq")]
+
+[node name="Menu" parent="." instance=ExtResource("11_qoduf")]
+
+[node name="CarSpawner" parent="." instance=ExtResource("12_hptx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.3249, 33.106617, 354.6177)
+
+[node name="CarSpawner2" parent="." instance=ExtResource("12_hptx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.811455, 34.08619, 353.69736)
+player_id = 1
+
+[node name="CarSpawner3" parent="." instance=ExtResource("12_hptx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.17474, 35.709003, 353.69736)
+player_id = 2
+
+[node name="CarSpawner4" parent="." instance=ExtResource("12_hptx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.354546, 36.54432, 353.69736)
+player_id = 3
+
+[node name="CarSpawner5" parent="." instance=ExtResource("12_hptx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.39938, 34.450535, 362.25964)
+player_id = 4
+
+[editable path="MapAydan"]

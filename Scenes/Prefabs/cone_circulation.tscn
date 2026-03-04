@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cur6yj4ktxjud"]
+
+[ext_resource type="PackedScene" uid="uid://x50p3mmpoc2o" path="res://Models/Prefabs/cone_circulation.glb" id="1_fyaf1"]
+
+[node name="cone_circulation" instance=ExtResource("1_fyaf1")]
+
+[node name="Cone circulation" parent="." index="0"]
+mass = 0.01

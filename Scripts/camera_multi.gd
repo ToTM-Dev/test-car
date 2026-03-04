@@ -1,9 +1,11 @@
 extends CanvasLayer
+class_name HUD
 
-var camera_preload = preload("res://Scenes/multiplayer_camera.tscn")
+@export var camera_preload : PackedScene = preload("res://Scenes/Prefabs/multiplayer_camera.tscn")
+# var camera_preload = preload("res://Scenes/multiplayer_camera.tscn")
 @onready var viewport_container : GridContainer = $MarginContainer/ViewportsGridContainer
 
-func _ready() -> void:
+func _show_cameras() -> void:
 	var cars : float = 0
 	for child in get_parent().get_children():
 		if child is RaycastCar and child.visible:

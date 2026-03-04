@@ -1,12 +1,12 @@
-[gd_scene load_steps=46 format=4 uid="uid://1xe3tmhji4ay"]
+[gd_scene load_steps=47 format=4 uid="uid://1xe3tmhji4ay"]
 
 [ext_resource type="Script" uid="uid://b2yik3pv7yu5m" path="res://Scripts/raycast_car.gd" id="1_dm256"]
-[ext_resource type="Curve" uid="uid://monyxc7ks6vc" path="res://ressources/car/car_accel_curve.tres" id="2_33i25"]
+[ext_resource type="Curve" uid="uid://monyxc7ks6vc" path="res://ressources/car/ouature/car_accel_curve.tres" id="2_33i25"]
 [ext_resource type="Script" uid="uid://c7tt8ervsa1qj" path="res://Scripts/raycast_wheel.gd" id="2_hvwjs"]
 [ext_resource type="Material" uid="uid://dy5cplckkm4jy" path="res://Shader_materials/Cars/blue_car.tres" id="2_o3e1r"]
-[ext_resource type="Curve" uid="uid://c2jypntu0uehw" path="res://ressources/car/car_tire_FRONT.tres" id="3_ac15w"]
+[ext_resource type="Curve" uid="uid://c2jypntu0uehw" path="res://ressources/car/ouature/car_tire_FRONT.tres" id="3_ac15w"]
 [ext_resource type="Material" uid="uid://c3sgcii8ytqu3" path="res://Shader_materials/Cars/purple_car.tres" id="3_ll8ha"]
-[ext_resource type="Curve" uid="uid://cvto0xqq6huv" path="res://ressources/car/car_tire_BACK.tres" id="4_3hskg"]
+[ext_resource type="Curve" uid="uid://cvto0xqq6huv" path="res://ressources/car/ouature/car_tire_BACK.tres" id="4_3hskg"]
 [ext_resource type="Material" uid="uid://c6iocu2uixm88" path="res://Shader_materials/Cars/red_car.tres" id="4_33i25"]
 [ext_resource type="Material" uid="uid://0qoyth0eft0f" path="res://Shader_materials/Cars/christmas_car.tres" id="6_t8cbp"]
 [ext_resource type="Material" uid="uid://du2jeh72qmk5o" path="res://Shader_materials/damier.tres" id="7_3cmxq"]
@@ -15,9 +15,10 @@
 [ext_resource type="Material" uid="uid://db4k7s3j0hcj7" path="res://Shader_materials/Cars/wheels_shader.tres" id="9_0hoo8"]
 [ext_resource type="Material" uid="uid://btwwaadw0kl07" path="res://Shader_materials/Cars/orange_car.tres" id="9_mvi3f"]
 [ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/shrek/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="11_mvi3f"]
-[ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/gun.gd" id="12_6fpat"]
-[ext_resource type="ArrayMesh" uid="uid://dk2r1f0nsfuyv" path="res://ressources/car/ouature.tres" id="12_ocpyo"]
-[ext_resource type="Shape3D" uid="uid://wfjka2h3hrys" path="res://ressources/car/ouature_collision.tres" id="13_7rplp"]
+[ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/Prefabs/gun.gd" id="12_6fpat"]
+[ext_resource type="ArrayMesh" uid="uid://dk2r1f0nsfuyv" path="res://ressources/car/ouature/ouature.tres" id="12_ocpyo"]
+[ext_resource type="Shape3D" uid="uid://wfjka2h3hrys" path="res://ressources/car/ouature/ouature_collision.tres" id="13_7rplp"]
+[ext_resource type="AudioStream" uid="uid://b7t0e015vd7lx" path="res://Sounds/FLORIAN-cri.mp3" id="19_7rplp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hvwjs"]
 friction = 0.5
@@ -392,14 +393,16 @@ contact_monitor = true
 max_contacts_reported = 2
 linear_damp_mode = 1
 script = ExtResource("1_dm256")
-jump_force = 100000.0
 wheels = [NodePath("WheelFL"), NodePath("WheelFR"), NodePath("WheelRL"), NodePath("WheelRR")]
 acceleration = 600.0
+max_speed = 120.0
 accel_curve = ExtResource("2_33i25")
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
 camera_max_fov = 140.0
 vibration = true
 materials = Array[Material]([ExtResource("2_o3e1r"), ExtResource("3_ll8ha"), ExtResource("4_33i25"), ExtResource("6_t8cbp"), ExtResource("7_3cmxq"), ExtResource("8_t7pyp"), ExtResource("9_mvi3f"), ExtResource("8_ajlwp"), SubResource("StandardMaterial3D_w7to3")])
+jump_range = 100
+jump_strength = 8.0
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4929375, -0.014720589)
@@ -575,5 +578,8 @@ one_shot = true
 libraries = {
 &"": SubResource("AnimationLibrary_rk1ey")
 }
+
+[node name="FlorianCri" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_7rplp")
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
