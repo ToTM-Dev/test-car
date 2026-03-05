@@ -11,4 +11,4 @@ func _ready() -> void:
 	for child in get_children():
 		if child is CarSpawner:
 			child._import_car()
-	hud._show_cameras()
+	hud._add_cameras()

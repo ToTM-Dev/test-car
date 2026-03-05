@@ -5,7 +5,7 @@ class_name HUD
 # var camera_preload = preload("res://Scenes/multiplayer_camera.tscn")
 @onready var viewport_container : GridContainer = $MarginContainer/ViewportsGridContainer
 
-func _show_cameras() -> void:
+func _add_cameras() -> void:
 	var cars : float = 0
 	for child in get_parent().get_children():
 		if child is RaycastCar:
@@ -13,6 +13,8 @@ func _show_cameras() -> void:
 			var camera = camera_preload.instantiate()
 			camera.get_child(0).get_child(0).get_child(0).target = child
 			camera.get_child(0).get_child(0).get_child(0)._update_settings()
+			child.camera = camera.get_child(0).get_child(0).get_child(0)
+			child._change_camera_check_visi(0)
 			viewport_container.add_child(camera)
 	
 	if cars:

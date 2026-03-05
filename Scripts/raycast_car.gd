@@ -56,11 +56,10 @@ var jump                          : bool  = false
 var left_jumps                    : int   = 0
 var controller                    : int   = 0 # -1 if is keyboard or > 0 if it's joypads
 var camera                        : Camera3D
+var ntc                           : int = 0 # next touched check
 
 func _ready() -> void:
 	mesh.set_surface_override_material(0, materials[car_id])
-	
-	controller = GameManager.players_controllers[car_id]
 	
 	if inital_position == Vector3.ZERO and initial_rotation == Vector3.ZERO:
 		inital_position  = global_position
@@ -105,7 +104,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("nitro") and can_nitro:
 		if not nitro and vibration:
-			Input.start_joy_vibration(car_id, 1.0,0.5,0.5)
+			Input.start_joy_vibration(controller, 1.0,0.5,0.5)
 		nitro = true
 	elif event.is_action_released("nitro"):
 		nitro = false
@@ -124,8 +123,8 @@ func _basic_steering_rotation(wheel : RaycastWheel, delta : float) -> void:
 	if reversed_commands:
 		turn_input = -turn_input
 	
-	if absf(turn_input) > 0.1 and controller > -1:
-		wheel.rotation.y = move_toward(wheel.rotation.y, -turn_input * 0.1 * tire_max_turn_degrees, tire_turn_speed * delta)
+	if absf(turn_input) > 0.05 and controller > -1:
+		wheel.rotation.y = move_toward(wheel.rotation.y, -turn_input * 0.01 * tire_max_turn_degrees, tire_turn_speed * delta)
 		wheel.rotation.y = clampf(wheel.rotation.y , deg_to_rad(-tire_max_turn_degrees), deg_to_rad(tire_max_turn_degrees))
 	elif turn_input and controller == -1:
 		wheel.rotation.y = wheel.rotation.y + turn_input * delta
@@ -208,3 +207,6 @@ func _on_respawn_timer_timeout() -> void:
 	angular_velocity = Vector3.ZERO
 	global_rotation = initial_rotation
 	global_position = inital_position
+
+func _change_camera_check_visi(check_id : int, boolean : bool = true):
+	camera.set_cull_mask_value(check_id + 2, boolean)

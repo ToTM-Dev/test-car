@@ -399,7 +399,6 @@ max_speed = 120.0
 accel_curve = ExtResource("2_33i25")
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
 camera_max_fov = 140.0
-vibration = true
 materials = Array[Material]([ExtResource("2_o3e1r"), ExtResource("3_ll8ha"), ExtResource("4_33i25"), ExtResource("6_t8cbp"), ExtResource("7_3cmxq"), ExtResource("8_t7pyp"), ExtResource("9_mvi3f"), ExtResource("8_ajlwp"), SubResource("StandardMaterial3D_w7to3")])
 jump_range = 100
 jump_strength = 8.0

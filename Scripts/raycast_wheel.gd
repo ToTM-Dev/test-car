@@ -87,7 +87,7 @@ func apply_wheel_physics(car : RaycastCar) -> void:
 	
 	if !is_steer:
 		if car.hand_break:
-			x_traction     = 0.1
+			x_traction     = 0.2
 		elif car.is_slipping :
 			x_traction     = 0.3
 		

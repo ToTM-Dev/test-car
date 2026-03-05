@@ -10,6 +10,7 @@ func _import_car() -> void:
 	if GameManager.players_controllers[player_id] > -2 :
 		var car : RaycastCar = cars[GameManager.players_car[player_id]].instantiate()
 		car.car_id = player_id
+		car.controller = GameManager.players_controllers[player_id]
 		car.inital_position = global_position
 		car.initial_rotation = global_rotation
 		get_parent().add_child(car)
