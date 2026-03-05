@@ -55,6 +55,7 @@ var nitro                         : bool  = false
 var jump                          : bool  = false
 var left_jumps                    : int   = 0
 var controller                    : int   = 0 # -1 if is keyboard or > 0 if it's joypads
+var camera                        : Camera3D
 
 func _ready() -> void:
 	mesh.set_surface_override_material(0, materials[car_id])
@@ -124,7 +125,8 @@ func _basic_steering_rotation(wheel : RaycastWheel, delta : float) -> void:
 		turn_input = -turn_input
 	
 	if absf(turn_input) > 0.1 and controller > -1:
-			wheel.rotation.y = move_toward(wheel.rotation.y, -turn_input * 0.01 * tire_max_turn_degrees, tire_turn_speed * delta)
+		wheel.rotation.y = move_toward(wheel.rotation.y, -turn_input * 0.1 * tire_max_turn_degrees, tire_turn_speed * delta)
+		wheel.rotation.y = clampf(wheel.rotation.y , deg_to_rad(-tire_max_turn_degrees), deg_to_rad(tire_max_turn_degrees))
 	elif turn_input and controller == -1:
 		wheel.rotation.y = wheel.rotation.y + turn_input * delta
 		wheel.rotation.y = clampf(wheel.rotation.y , deg_to_rad(-tire_max_turn_degrees), deg_to_rad(tire_max_turn_degrees))

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0b0gs4a1fc0g" path="res://Scripts/camera_multi.gd" id="1_jo1ms"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 process_physics_priority = -1
 script = ExtResource("1_jo1ms")
 

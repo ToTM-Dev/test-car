@@ -8,7 +8,7 @@ class_name HUD
 func _show_cameras() -> void:
 	var cars : float = 0
 	for child in get_parent().get_children():
-		if child is RaycastCar and child.visible:
+		if child is RaycastCar:
 			cars += 1
 			var camera = camera_preload.instantiate()
 			camera.get_child(0).get_child(0).get_child(0).target = child

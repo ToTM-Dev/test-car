@@ -44,6 +44,7 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
 top_level = true
+cull_mask = 1
 script = ExtResource("1_inet2")
 offset = 1.6
 
