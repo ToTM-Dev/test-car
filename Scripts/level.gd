@@ -12,3 +12,4 @@ func _ready() -> void:
 		if child is CarSpawner:
 			child._import_car()
 	hud._add_cameras()
+	Input.mouse_mode =Input.MOUSE_MODE_HIDDEN

@@ -1,7 +1,7 @@
 extends Button
 class_name SceneChangerButton
 
-var next_scene_path : String
+@export var next_scene_path : String
 
 func  _ready() -> void:
 	connect("pressed", _change_to_next_scene)

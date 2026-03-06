@@ -277,7 +277,6 @@ skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParti
 camera_min_distance = 5.0
 camera_max_distance = 8.0
 camera_height = 4.0
-vibration = true
 materials = Array[Material]([ExtResource("3_6lc8r"), ExtResource("4_yxwta"), ExtResource("5_pr4cr"), ExtResource("6_1kcfq"), ExtResource("7_a70gl"), ExtResource("8_vsrr6"), ExtResource("9_kscks"), ExtResource("10_v2mf2"), SubResource("StandardMaterial3D_w7to3")])
 jump_range = 150
 jump_strength = 20.0

@@ -12,6 +12,10 @@ extends Camera3D
 @export var target : RaycastCar
 
 @onready var parent = get_parent()
+@onready var timer_label = $"../../Control/TimerLabel"
+
+var timer_enabled : bool = false
+var timer = 0.0
 
 var speed_label : Label 
 var respawn_label : Label
@@ -75,6 +79,9 @@ func _physics_process(_delta: float) -> void:
 		parent.rotate_z(0.1 * z_turn_input)
 			
 		top_level = true
+	
+	if timer_enabled:
+		_update_timer_label(_delta)
 
 func _update_compteur(compteur : Label) ->void:
 	var speed_km_h = target.speed
@@ -89,3 +96,15 @@ func _update_settings():
 		min_fov      = target.camera_min_fov
 		max_fov      = target.camera_max_fov
 		fov_step     = target.camera_fov_step
+
+func _launch_timer():
+	timer_label.visible = true
+	timer_enabled = true
+	timer = 0.0
+
+func  _update_timer_label(delta : float):
+	timer += delta
+	timer_label.text = "Chrono : " + str(roundf(timer * 100)/100)
+
+func _pause_timer():
+	timer_enabled = false

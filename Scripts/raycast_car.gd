@@ -207,6 +207,9 @@ func _on_respawn_timer_timeout() -> void:
 	angular_velocity = Vector3.ZERO
 	global_rotation = initial_rotation
 	global_position = inital_position
+	_change_camera_check_visi(ntc, false)
+	_change_camera_check_visi(0)
+	ntc = 0
 
 func _change_camera_check_visi(check_id : int, boolean : bool = true):
 	camera.set_cull_mask_value(check_id + 2, boolean)
