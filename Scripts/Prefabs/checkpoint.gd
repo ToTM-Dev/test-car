@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var id = int(self.name.split("_")[1])
-@onready var portal : CSGBox3D = $CSGBox3D
+@export var portal : CSGShape3D
 @export var last : bool = false
 
 # Called when the node enters the scene tree for the first time.

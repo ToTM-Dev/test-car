@@ -84,6 +84,7 @@ theme = ExtResource("2_cayip")
 text = "RESUME"
 
 [node name="OptionMenuButton" type="Button" parent="Main/Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_cayip")

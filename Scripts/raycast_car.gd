@@ -72,7 +72,9 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("reload_scene"):
-		get_tree().reload_current_scene()
+		_respawn()
+		self.global_rotation = initial_rotation
+		self.global_position = inital_position
 	
 	
 	if event.is_action_pressed("jump") and grounded and can_jump:
@@ -182,7 +184,7 @@ func  _physics_process(_delta: float) -> void:
 		left_jumps -= 1
 		#apply_central_force(Vector3(0,1,0) * jump_strength)
 		linear_velocity.y = jump_strength
-		linear_velocity.y += left_jumps / 3
+		linear_velocity.y += float(left_jumps) / 3
 	
 	if grounded:
 		left_jumps = jump_range
@@ -203,12 +205,17 @@ func _get_point_velocity(point:Vector3) -> Vector3:
 
 
 func _on_respawn_timer_timeout() -> void:
+	_respawn()
+
+func _respawn():
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	global_rotation = initial_rotation
 	global_position = inital_position
 	_change_camera_check_visi(ntc, false)
 	_change_camera_check_visi(0)
+	camera.timer = 0.0
+	camera._pause_timer()
 	ntc = 0
 
 func _change_camera_check_visi(check_id : int, boolean : bool = true):

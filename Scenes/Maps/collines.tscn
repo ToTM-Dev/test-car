@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://co0j34eqigvdy"]
+[gd_scene load_steps=15 format=3 uid="uid://co0j34eqigvdy"]
 
 [ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="1_ge1nq"]
 [ext_resource type="Script" uid="uid://cl0xmlsr0w17s" path="res://Scripts/level.gd" id="1_hptx7"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cak4j83yvvuye" path="res://Scenes/Menus/HUD.tscn" id="10_ge1nq"]
 [ext_resource type="PackedScene" uid="uid://j67t0rgrybcj" path="res://Scenes/Menus/menu.tscn" id="11_qoduf"]
 [ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Prefabs/car_spawner.tscn" id="12_hptx7"]
+[ext_resource type="PackedScene" uid="uid://c3b7thxy2e1bx" path="res://Scenes/Prefabs/checkpoint.tscn" id="13_n27vw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ge1nq"]
 albedo_texture = ExtResource("3_w3lmb")
@@ -69,5 +70,27 @@ player_id = 3
 [node name="CarSpawner5" parent="." instance=ExtResource("12_hptx7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.39938, 34.450535, 362.25964)
 player_id = 4
+
+[node name="Checkpoints" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Checkpoint_0" parent="Checkpoints" instance=ExtResource("13_n27vw")]
+transform = Transform3D(0.6667537, 0, 0.74527824, 0, 1, 0, -0.74527824, 0, 0.6667537, 145.43484, -111.527916, -71.98764)
+
+[node name="Checkpoint_1" parent="Checkpoints" instance=ExtResource("13_n27vw")]
+transform = Transform3D(0.9961704, 0, -0.08743393, 0, 1, 0, 0.08743393, 0, 0.9961704, 289.15988, -98.012695, 228.38457)
+
+[node name="Checkpoint_2" parent="Checkpoints" instance=ExtResource("13_n27vw")]
+transform = Transform3D(0.17072539, 0, -0.98531884, 0, 1, 0, 0.98531884, 0, 0.17072539, -108.893425, -103.19381, 392.57968)
+
+[node name="Checkpoint_3" parent="Checkpoints" instance=ExtResource("13_n27vw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -308.25534, -134.1238, -31.81294)
+
+[node name="Checkpoint_4" parent="Checkpoints" instance=ExtResource("13_n27vw")]
+transform = Transform3D(0.3769195, 0, -0.92624605, 0, 1, 0, 0.92624605, 0, 0.3769195, -46.99194, -99.90753, -343.23676)
+
+[node name="Checkpoint_5" parent="Checkpoints" instance=ExtResource("13_n27vw")]
+transform = Transform3D(-0.9836818, -0.0024050348, -0.17990148, -0.0024857942, 0.999997, 0.00022346905, 0.1799004, 0.00066702033, -0.98368466, -8.157946, -119.18017, -142.36331)
+last = true
 
 [editable path="MapAydan"]

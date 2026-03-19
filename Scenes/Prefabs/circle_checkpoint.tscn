@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://fpcojoi0wntx"]
+
+[ext_resource type="Script" uid="uid://w3xikpbd0uiv" path="res://Scripts/Prefabs/checkpoint.gd" id="1_2gqmk"]
+[ext_resource type="PackedScene" uid="uid://d2fnue6sb787p" path="res://Models/Prefabs/circle_check.glb" id="2_2gqmk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hkb7"]
+blend_mode = 1
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xa5kw"]
+radius = 17.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn0nn"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7yjh"]
+next_pass = SubResource("StandardMaterial3D_mn0nn")
+stencil_mode = 1
+stencil_flags = 2
+
+[sub_resource type="TextMesh" id="TextMesh_rf2pg"]
+text = "Finish"
+font_size = 127
+
+[node name="Checkpoint_0" type="Node3D" node_paths=PackedStringArray("portal")]
+script = ExtResource("1_2gqmk")
+portal = NodePath("CSGBox3D")
+
+[node name="circle_check" parent="." instance=ExtResource("2_2gqmk")]
+
+[node name="CSGBox3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
+layers = 0
+radius = 17.0
+sides = 18
+material = SubResource("StandardMaterial3D_5hkb7")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_xa5kw")
+
+[node name="Finish" type="MeshInstance3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 80, 0, 55.46383, 0)
+layers = 0
+material_override = SubResource("StandardMaterial3D_t7yjh")
+mesh = SubResource("TextMesh_rf2pg")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

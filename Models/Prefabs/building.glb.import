@@ -53,7 +53,7 @@ _subresources={
 "PATH:Cube_001": {
 "generate/occluder": 1,
 "generate/physics": true,
-"physics/shape_type": 1
+"physics/shape_type": 3
 }
 }
 }
