@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cehrf5ma8rukw" path="res://Models/Maps/Main/test_map.glb" id="2_3t33j"]
 [ext_resource type="Material" uid="uid://d168qjgk2djcl" path="res://Shader_materials/road_center.tres" id="3_6h48e"]
 [ext_resource type="ArrayOccluder3D" uid="uid://blnmikhp0vspi" path="res://Scenes/Maps/Occluders/test scene 2.occ" id="7_3t33j"]
-[ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Prefabs/car_spawner.tscn" id="9_hiltt"]
+[ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Managers/car_spawner.tscn" id="9_hiltt"]
 [ext_resource type="MeshLibrary" uid="uid://dy2fxa2744ygy" path="res://ressources/building/grid_test.tres" id="10_pct1s"]
 [ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="16_786ly"]
 [ext_resource type="PackedScene" uid="uid://cak4j83yvvuye" path="res://Scenes/Menus/HUD.tscn" id="17_2rqd0"]

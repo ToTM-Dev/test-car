@@ -27,7 +27,7 @@ buses/default_bus_layout="res://Sounds/default_bus_layout.tres"
 [autoload]
 
 LoadScreen="*res://Scenes/Managers/load_screen.tscn"
-GameManager="*res://Scenes/Prefabs/game_manager.tscn"
+GameManager="*res://Scenes/Managers/game_manager.tscn"
 
 [display]
 
@@ -142,7 +142,6 @@ toogle_fullscreen={
 
 [physics]
 
-3d/run_on_separate_thread=true
 common/physics_ticks_per_second=120
 3d/physics_engine="Jolt Physics"
 
@@ -150,5 +149,4 @@ common/physics_ticks_per_second=120
 
 textures/default_filters/anisotropic_filtering_level=0
 anti_aliasing/screen_space_roughness_limiter/enabled=false
-scaling_3d/scale=0.5
 occlusion_culling/use_occlusion_culling=true

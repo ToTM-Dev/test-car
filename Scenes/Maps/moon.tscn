@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cl0xmlsr0w17s" path="res://Scripts/level.gd" id="1_62w06"]
 [ext_resource type="PackedScene" uid="uid://qtmlhtlwl3nf" path="res://Models/Maps/Moon/map.glb" id="6_y0t37"]
-[ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Prefabs/car_spawner.tscn" id="14_y5xhd"]
+[ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Managers/car_spawner.tscn" id="14_y5xhd"]
 [ext_resource type="Environment" uid="uid://cd1wiwk0oxbgm" path="res://ressources/scene.tres" id="16_wuwh8"]
 [ext_resource type="PackedScene" uid="uid://cak4j83yvvuye" path="res://Scenes/Menus/HUD.tscn" id="17_3iufv"]
 [ext_resource type="PackedScene" uid="uid://j67t0rgrybcj" path="res://Scenes/Menus/menu.tscn" id="18_s37fg"]

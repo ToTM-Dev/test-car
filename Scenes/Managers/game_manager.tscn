@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdurx8qsqwuk0"]
+
+[ext_resource type="Script" uid="uid://epefa5f5d4y1" path="res://Scripts/Managers/game_manager.gd" id="1_k0u7g"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_k0u7g")
+players_car = Array[int]([3, 2, 0, 0, 0, 0, 0, 0])

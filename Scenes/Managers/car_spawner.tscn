@@ -1,0 +1,14 @@
+[gd_scene load_steps=7 format=3 uid="uid://cp0wdqpa6mflh"]
+
+[ext_resource type="Script" uid="uid://c5te4pbmrle6f" path="res://Scripts/Prefabs/car_spawner.gd" id="1_83xab"]
+[ext_resource type="PackedScene" uid="uid://bllnq712q5xvu" path="res://Scenes/Cars/delorean.tscn" id="2_d81sa"]
+[ext_resource type="PackedScene" uid="uid://1xe3tmhji4ay" path="res://Scenes/Cars/raycast_car.tscn" id="3_7vywb"]
+[ext_resource type="PackedScene" uid="uid://13ukb4a1l7xl" path="res://Models/cars/OUATURE.glb" id="4_7vywb"]
+[ext_resource type="PackedScene" uid="uid://d1el1fwyidyky" path="res://Scenes/Cars/pick-up.tscn" id="4_u4odq"]
+[ext_resource type="PackedScene" uid="uid://byv2dc3l788y1" path="res://Scenes/Cars/train.tscn" id="5_3c12w"]
+
+[node name="CarSpawner" type="Node3D"]
+script = ExtResource("1_83xab")
+cars = Array[PackedScene]([ExtResource("3_7vywb"), ExtResource("2_d81sa"), ExtResource("4_u4odq"), ExtResource("5_3c12w")])
+
+[node name="OUATURE" parent="." instance=ExtResource("4_7vywb")]

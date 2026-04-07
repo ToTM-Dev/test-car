@@ -11,7 +11,7 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://dqyidms6geg5o" path="res://Scenes/Maps/Occluders/scene2.occ" id="9_13otf"]
 [ext_resource type="PackedScene" uid="uid://cak4j83yvvuye" path="res://Scenes/Menus/HUD.tscn" id="10_ge1nq"]
 [ext_resource type="PackedScene" uid="uid://j67t0rgrybcj" path="res://Scenes/Menus/menu.tscn" id="11_qoduf"]
-[ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Prefabs/car_spawner.tscn" id="12_hptx7"]
+[ext_resource type="PackedScene" uid="uid://cp0wdqpa6mflh" path="res://Scenes/Managers/car_spawner.tscn" id="12_hptx7"]
 [ext_resource type="PackedScene" uid="uid://c3b7thxy2e1bx" path="res://Scenes/Prefabs/checkpoint.tscn" id="13_n27vw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ge1nq"]

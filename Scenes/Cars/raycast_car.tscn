@@ -405,7 +405,6 @@ jump_strength = 8.0
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4929375, -0.014720589)
-layers = 2
 mesh = ExtResource("12_ocpyo")
 skeleton = NodePath("")
 surface_material_override/2 = SubResource("StandardMaterial3D_7rplp")

@@ -1,0 +1,469 @@
+[gd_scene load_steps=37 format=3 uid="uid://d1el1fwyidyky"]
+
+[ext_resource type="Script" uid="uid://b2yik3pv7yu5m" path="res://Scripts/raycast_car.gd" id="1_s0hip"]
+[ext_resource type="Material" uid="uid://dy5cplckkm4jy" path="res://Shader_materials/Cars/blue_car.tres" id="3_sto8w"]
+[ext_resource type="Material" uid="uid://c3sgcii8ytqu3" path="res://Shader_materials/Cars/purple_car.tres" id="4_r66vy"]
+[ext_resource type="Material" uid="uid://c6iocu2uixm88" path="res://Shader_materials/Cars/red_car.tres" id="5_3pe1g"]
+[ext_resource type="Material" uid="uid://0qoyth0eft0f" path="res://Shader_materials/Cars/christmas_car.tres" id="6_3vvqn"]
+[ext_resource type="Material" uid="uid://du2jeh72qmk5o" path="res://Shader_materials/damier.tres" id="7_y3atk"]
+[ext_resource type="Material" uid="uid://4oxogenaknir" path="res://Shader_materials/Cars/lgbt_car.tres" id="8_mb8c7"]
+[ext_resource type="Material" uid="uid://btwwaadw0kl07" path="res://Shader_materials/Cars/orange_car.tres" id="9_mbmwm"]
+[ext_resource type="Material" uid="uid://b3l4nb16yongu" path="res://Shader_materials/Cars/golden_car.tres" id="10_buliv"]
+[ext_resource type="Texture2D" uid="uid://ctlruyh3ef8ch" path="res://ressources/shrek/what-makes-you-make-this-face-v0-k3q1p7so7hue1.webp" id="11_wsjt3"]
+[ext_resource type="ArrayMesh" uid="uid://babhl4e8wrr74" path="res://ressources/car/pick_up/pick_up.res" id="12_lr8fk"]
+[ext_resource type="Script" uid="uid://c7tt8ervsa1qj" path="res://Scripts/raycast_wheel.gd" id="13_01vvo"]
+[ext_resource type="ArrayMesh" uid="uid://65cnqxhok10a" path="res://ressources/car/pick_up/suspension.res" id="13_sto8w"]
+[ext_resource type="Curve" uid="uid://c2klwyi70fteb" path="res://ressources/car/delorean/car_tire_FRONT.tres" id="14_u4u30"]
+[ext_resource type="Material" uid="uid://db4k7s3j0hcj7" path="res://Shader_materials/Cars/wheels_shader.tres" id="15_nd5e5"]
+[ext_resource type="Curve" uid="uid://pijjnkcix44n" path="res://ressources/car/delorean/car_tire_BACK.tres" id="16_da5fn"]
+[ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/Prefabs/gun.gd" id="17_5ni8l"]
+[ext_resource type="ArrayMesh" uid="uid://bmi31fs8t1msu" path="res://ressources/car/pick_up/wheel.res" id="17_r66vy"]
+[ext_resource type="AudioStream" uid="uid://b7t0e015vd7lx" path="res://Sounds/FLORIAN-cri.mp3" id="19_ctwar"]
+[ext_resource type="Texture2D" uid="uid://8shchvbn80ct" path="res://ressources/shrek/3ee2e2bfe243c50895e724ef87116c25.jpg" id="20_lr8fk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hvwjs"]
+friction = 0.5
+rough = true
+
+[sub_resource type="Curve" id="Curve_s0hip"]
+_limits = [0.0, 1.0, -1.0, 1.5]
+_data = [Vector2(-1, 0), 0.0, 0.0, 0, 0, Vector2(-0.5, 0.05), -0.4370786, -0.4370786, 0, 0, Vector2(0.02727282, 0.17771089), -0.12594117, -0.12594117, 0, 0, Vector2(0.15454555, 0.28539163), 0.0, 0.0, 0, 0, Vector2(0.36363637, 0.08960855), -0.13506506, -0.13506506, 0, 0, Vector2(1.5, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+metadata/_snap_count = 20
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7to3"]
+albedo_texture = ExtResource("11_wsjt3")
+metallic = 0.45
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 8.8
+emission_texture = ExtResource("11_wsjt3")
+uv1_triplanar = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3pe1g"]
+points = PackedVector3Array(-4.775911, -0.78980505, -2, -4.7942324, -0.78980505, -1.8379014, -4.7942324, -0.12638915, -1.8382928, -4.775911, 0.27408254, -2, 4.8254657, -0.78980505, -2, -4.8115897, -0.78980505, -1.6092403, -4.7942324, 0.27408254, -1.8382928, -4.8115897, 0.27408254, -1.6096319, -4.7778397, 0.41753113, -1.8390759, -4.759518, 0.41753113, -2, 4.8254657, 0.96360445, -2, 4.8553576, -0.78980505, -1.9980423, -4.8250895, -0.78980505, -1.3578699, -4.7951965, 0.41753113, -1.6100235, -4.8250895, 0.27408254, -1.3582615, -4.7479467, 0.5537131, -1.6108065, -4.729625, 0.5537131, -1.8394675, -4.7122684, 0.5537131, -2, 4.8553576, 0.9617206, -1.9980423, 1.174686, 1.0537645, -2, 1.059936, 1.868703, -1.688332, 1.0744004, 1.9580556, -1.6182458, 4.8862147, -0.78980505, -1.991386, -4.8347325, -0.78980505, -1.0955362, -4.8086967, 0.41753113, -1.3586531, -4.8347325, 0.27408254, -1.0959278, -4.684304, 0.6756309, -1.3598276, -4.670804, 0.6756309, -1.6111981, -4.653447, 0.6756309, -1.8402506, -4.7604823, 0.5537131, -1.3590446, -4.6351256, 0.6756309, -2, 4.8862147, 0.9547231, -1.991386, 1.0975432, 1.9540185, -1.6182458, -0.0055980682, 1.0443448, -2, -0.18688345, 1.0424608, -2, -2.646772, 1.0128561, -2, -1.4317739, 1.9596704, -1.6182458, 1.050293, 1.9596704, -1.6182458, 1.0744004, 1.9580556, 1.6178548, 4.9141793, -0.78980505, -1.9792483, -4.842447, -0.78980505, -0.82654643, -4.8183393, 0.41753113, -1.0963194, -4.7710896, 0.5537131, -1.0967109, -4.842447, 0.27408254, -0.82654643, -4.693947, 0.6756309, -1.0971024, -4.58209, 0.7779019, -1.3602192, -4.56859, 0.7779019, -1.6119812, -4.551233, 0.7779019, -1.8414252, -4.5329113, 0.7779019, -2, 4.8862147, 0.9547231, 1.9909952, 4.9141793, 0.94261205, -1.9792483, 1.0975432, 1.9540185, 1.6178548, -4.131769, 0.9183899, -2, -1.4317739, 1.9596704, 1.6178548, -4.274483, 0.90224195, -2, -4.411412, 0.8546052, -2, -4.4287686, 0.8546052, -1.8422083, -4.446126, 0.8546052, -1.6127642, -4.4596257, 0.8546052, -1.3610022, -4.469269, 0.8546052, -1.0978856, -4.476983, 0.8546052, -0.8285041, -4.4827685, 0.8546052, -0.55442417, -4.4856615, 0.8546052, -0.277995, -4.4866257, 0.8546052, -0.0003912449, 1.050293, 1.9596704, 1.6178548, 1.059936, 1.868703, 1.6879411, 4.8254657, 0.96360445, 1.999609, 4.8553576, 0.9617206, 1.9976513, 4.9392505, -0.78980505, -1.9620204, -4.847268, -0.78980505, -0.5532496, -4.8260536, 0.41753113, -0.8269379, -4.778804, 0.5537131, -0.8273295, -4.847268, 0.27408254, -0.5532496, -4.701661, 0.6756309, -0.827721, -4.591733, 0.7779019, -1.097494, 4.8862147, -0.78980505, 1.9909952, 4.9141793, 0.94261205, 1.9788573, 4.9392505, 0.9253875, -1.9620204, -2.646772, 1.0128561, 1.999609, -4.4856615, 0.8546052, 0.2776041, -4.4827685, 0.8546052, 0.5540333, -4.476983, 0.8546052, 0.8281131, -4.469269, 0.8546052, 1.0974946, -4.4596257, 0.8546052, 1.3606112, -4.446126, 0.8546052, 1.6123734, -4.4287686, 0.8546052, 1.8418174, -4.411412, 0.8546052, 1.999609, -4.274483, 0.90224195, 1.999609, -4.131769, 0.9183899, 1.999609, -4.5994473, 0.7779019, -0.8281126, -4.6042686, 0.7779019, -0.5540327, -4.6081257, 0.7779019, -0.2776035, -4.60909, 0.7779019, -0.0003912449, -0.18688345, 1.0424608, 1.999609, -0.0055980682, 1.0443448, 1.999609, 1.174686, 1.0537645, 1.999609, 4.8254657, -0.78980505, 1.999609, 4.8553576, -0.78980505, 1.9976513, 4.961429, -0.78980505, -1.940094, -4.850161, -0.78980505, -0.2772119, -4.8308754, 0.41753113, -0.5536411, -4.783625, 0.5537131, -0.5536411, -4.850161, 0.27408254, -0.2772119, -4.8347325, 0.41753113, -0.2776035, -4.7064824, 0.6756309, -0.5540327, 4.9141793, -0.78980505, 1.9788573, 4.9392505, 0.9253875, 1.9616294, 4.961429, 0.90385675, -1.940094, -4.6081257, 0.7779019, 0.27721262, -4.6042686, 0.7779019, 0.5536418, -4.5994473, 0.7779019, 0.8277216, -4.591733, 0.7779019, 1.0971031, -4.58209, 0.7779019, 1.3598282, -4.56859, 0.7779019, 1.6115901, -4.551233, 0.7779019, 1.8410342, -4.5329113, 0.7779019, 1.999609, -4.7093754, 0.6756309, -0.2776035, -4.711304, 0.6756309, -0.0003912449, -4.775911, -0.78980505, 1.999609, 4.978786, -0.78980505, -1.9146436, -4.8511252, -0.78980505, -0.0003912449, -4.786518, 0.5537131, -0.2776035, -4.8511252, 0.27408254, -0.0003912449, -4.8356967, 0.41753113, -0.0003912449, 4.9392505, -0.78980505, 1.9616294, 4.961429, 0.90385675, 1.939703, 4.978786, 0.878289, -1.9146436, -4.7093754, 0.6756309, 0.27721262, -4.7064824, 0.6756309, 0.5536418, -4.701661, 0.6756309, 0.8273301, -4.693947, 0.6756309, 1.0967114, -4.684304, 0.6756309, 1.3594368, -4.670804, 0.6756309, 1.6108072, -4.653447, 0.6756309, 1.8398597, -4.6351256, 0.6756309, 1.999609, -4.7874823, 0.5537131, -0.0003912449, -4.786518, 0.5537131, 0.27721262, -4.775911, 0.27408254, 1.999609, -4.7942324, -0.12638915, 1.8379018, -4.7942324, -0.78980505, 1.8375103, 4.990358, -0.78980505, -1.8864526, -4.850161, -0.78980505, 0.2768209, -4.850161, 0.27408254, 0.2768209, -4.8347325, 0.41753113, 0.27721262, 4.961429, -0.78980505, 1.939703, 4.978786, 0.878289, 1.9142528, 4.990358, 0.8500298, -1.8864526, -4.783625, 0.5537131, 0.5532501, -4.778804, 0.5537131, 0.8269386, -4.7710896, 0.5537131, 1.0963199, -4.7604823, 0.5537131, 1.3586535, -4.7479467, 0.5537131, 1.6104155, -4.729625, 0.5537131, 1.8390765, -4.7122684, 0.5537131, 1.999609, -4.7778397, 0.41753113, 1.838685, -4.7942324, 0.27408254, 1.8379018, -4.759518, 0.41753113, 1.999609, -4.8115897, 0.27408254, 1.609241, -4.8115897, -0.78980505, 1.6088493, 4.997108, -0.78980505, -1.8563038, -4.847268, -0.78980505, 0.5528586, -4.847268, 0.27408254, 0.5528586, -4.8308754, 0.41753113, 0.5532501, 4.978786, -0.78980505, 1.9142528, 4.990358, 0.8500298, 1.8860617, 4.997108, 0.8198868, -1.8563038, -4.8260536, 0.41753113, 0.8265469, -4.8183393, 0.41753113, 1.0959284, -4.8086967, 0.41753113, 1.3582621, -4.7951965, 0.41753113, 1.6096325, -4.8250895, 0.27408254, 1.3578706, -4.8250895, -0.78980505, 1.3574789, 5.0000005, -0.78980505, -1.8257635, -4.842447, -0.78980505, 0.8261554, -4.842447, 0.27408254, 0.8261554, 4.990358, -0.78980505, 1.8860617, 4.997108, 0.8198868, 1.8559129, 5.0000005, 0.78920555, -1.8257635, -4.8347325, 0.27408254, 1.095537, -4.8347325, -0.78980505, 1.0951452, 5.0000005, -0.78980505, 1.8253725, 4.997108, -0.78980505, 1.8559129, 5.0000005, 0.78920555, 1.8253725)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ac15w"]
+height = 2.223
+radius = 1.5
+
+[sub_resource type="Gradient" id="Gradient_hvwjs"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.40784314)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_foqgk"]
+gradient = SubResource("Gradient_hvwjs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hvwjs"]
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_foqgk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epewq"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ac15w"]
+material = SubResource("StandardMaterial3D_epewq")
+size = Vector2(0.62, 1)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocpyo"]
+albedo_color = Color(0.50534403, 0.5053441, 0.50534403, 1)
+metallic = 0.95
+roughness = 0.82
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0hoo8"]
+top_radius = 0.285
+bottom_radius = 0.61
+height = 3.919
+
+[sub_resource type="Animation" id="Animation_7rplp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gun:material_override:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Gun:material_override:emission")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eeu5i"]
+resource_name = "hide_gun"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.4999666, 2.6666665, 2.9999666),
+"transitions": PackedFloat32Array(1.8025004, 0.7845841, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.2, 1.2, 1.2), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.9999666),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gun:material_override:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 16.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Gun:material_override:emission")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6333332, 0.83333325, 1.0666667, 1.2666668, 1.4999999, 1.6999999, 1.9666667, 2.1666667, 2.3999999, 2.6, 2.8333335, 3.0333333, 3.2666664, 3.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.012617188, 0, 0, 1), Color(1, 0, 0, 1), Color(0.012617188, 0, 0, 1), Color(1, 0, 0, 1), Color(0.012617188, 0, 0, 1), Color(1, 0, 0, 1), Color(0.012617188, 0, 0, 1), Color(1, 0, 0, 1), Color(0.012617188, 0, 0, 1), Color(1, 0, 0, 1), Color(0.012617188, 0, 0, 1), Color(1, 0, 0, 1), Color(0.012617188, 0, 0, 1), Color(1, 0, 0, 1), Color(0.012617188, 0, 0, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ocpyo"]
+resource_name = "show_gun"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1),
+"transitions": PackedFloat32Array(2.7320797, 0.6597545, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.2, 1.2, 1.2), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gun")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_reset"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Gun:material_override:emission_energy_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.66, 1),
+"transitions": PackedFloat32Array(0.1088188, 0.17075506, 1),
+"update": 0,
+"values": [0.0, 16.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Gun:material_override:emission")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rk1ey"]
+_data = {
+&"RESET": SubResource("Animation_7rplp"),
+&"hide_gun": SubResource("Animation_eeu5i"),
+&"show_gun": SubResource("Animation_ocpyo")
+}
+
+[node name="Car" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_hvwjs")
+gravity_scale = 10.0
+contact_monitor = true
+max_contacts_reported = 2
+linear_damp_mode = 1
+script = ExtResource("1_s0hip")
+wheels = [NodePath("WheelFL"), NodePath("WheelFR"), NodePath("WheelRL"), NodePath("WheelRR")]
+acceleration = 1000.0
+max_speed = 200.0
+accel_curve = SubResource("Curve_s0hip")
+tire_max_turn_degrees = 25.0
+skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
+camera_min_distance = 5.0
+camera_max_distance = 16.0
+camera_height = 6.0
+materials = Array[Material]([ExtResource("3_sto8w"), ExtResource("4_r66vy"), ExtResource("5_3pe1g"), ExtResource("6_3vvqn"), ExtResource("7_y3atk"), ExtResource("8_mb8c7"), ExtResource("9_mbmwm"), ExtResource("10_buliv"), SubResource("StandardMaterial3D_w7to3")])
+jump_range = 150
+jump_strength = 20.0
+nitro_strength = 5.0
+
+[node name="PickUp" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 3.415173, 0.17373276)
+mesh = ExtResource("12_lr8fk")
+
+[node name="Suspension" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.025173, 0.09853554)
+mesh = ExtResource("13_sto8w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.436706e-08, 0, -1.535, 0, 1.01, 0, 1.015, 0, -6.709698e-08, 0, 3.415173, 0.17373276)
+visible = false
+shape = SubResource("ConvexPolygonShape3D_3pe1g")
+
+[node name="WheelFL" type="RayCast3D" parent="." node_paths=PackedStringArray("shapecast")]
+process_physics_priority = -1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7, 3.0038476, -2.8262672)
+hit_from_inside = true
+script = ExtResource("13_01vvo")
+shapecast = NodePath("ShapeCast3D")
+spring_strength = 340.0
+spring_damping = 10.0
+max_spring_force = 1000.0
+rest_dist = 3.3
+over_extend = 0.2
+wheel_radius = 1.6
+z_brake_traction = 0.2
+is_motor = true
+is_steer = true
+grip_curve = ExtResource("14_u4u30")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="WheelFL"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("15_nd5e5")
+mesh = ExtResource("17_r66vy")
+skeleton = NodePath("")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="WheelFL"]
+process_priority = -1
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ac15w")
+target_position = Vector3(0, 0, 0)
+max_results = 3
+debug_shape_custom_color = Color(0.9882353, 0, 0, 1)
+
+[node name="WheelFR" type="RayCast3D" parent="." node_paths=PackedStringArray("shapecast")]
+process_physics_priority = -1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 3.0038476, -2.8262672)
+hit_from_inside = true
+script = ExtResource("13_01vvo")
+shapecast = NodePath("ShapeCast3D")
+spring_strength = 340.0
+spring_damping = 10.0
+max_spring_force = 1000.0
+rest_dist = 3.3
+over_extend = 0.2
+wheel_radius = 1.6
+z_brake_traction = 0.2
+is_motor = true
+is_steer = true
+grip_curve = ExtResource("14_u4u30")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="WheelFR"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("15_nd5e5")
+mesh = ExtResource("17_r66vy")
+skeleton = NodePath("")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="WheelFR"]
+process_priority = -1
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ac15w")
+target_position = Vector3(0, 0, 0)
+max_results = 3
+debug_shape_custom_color = Color(0.9882353, 0, 0, 1)
+
+[node name="WheelRL" type="RayCast3D" parent="." node_paths=PackedStringArray("shapecast")]
+process_physics_priority = -1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7, 3.0038476, 2.9737327)
+hit_from_inside = true
+script = ExtResource("13_01vvo")
+shapecast = NodePath("ShapeCast3D")
+spring_strength = 340.0
+spring_damping = 10.0
+max_spring_force = 1000.0
+rest_dist = 3.3
+over_extend = 0.2
+wheel_radius = 1.6
+z_brake_traction = 0.2
+is_motor = true
+grip_curve = ExtResource("16_da5fn")
+
+[node name="Cylinder_003" type="MeshInstance3D" parent="WheelRL"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("15_nd5e5")
+mesh = ExtResource("17_r66vy")
+skeleton = NodePath("")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="WheelRL"]
+process_priority = -1
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ac15w")
+target_position = Vector3(0, 0, 0)
+max_results = 3
+debug_shape_custom_color = Color(0.9882353, 0, 0, 1)
+
+[node name="WheelRR" type="RayCast3D" parent="." node_paths=PackedStringArray("shapecast")]
+process_physics_priority = -1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 3.0038476, 2.9737327)
+hit_from_inside = true
+script = ExtResource("13_01vvo")
+shapecast = NodePath("ShapeCast3D")
+spring_strength = 340.0
+spring_damping = 10.0
+max_spring_force = 1000.0
+rest_dist = 3.3
+over_extend = 0.2
+wheel_radius = 1.6
+z_brake_traction = 0.2
+is_motor = true
+grip_curve = ExtResource("16_da5fn")
+
+[node name="Cylinder_003" type="MeshInstance3D" parent="WheelRR"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("15_nd5e5")
+mesh = ExtResource("17_r66vy")
+skeleton = NodePath("")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="WheelRR"]
+process_priority = -1
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_ac15w")
+target_position = Vector3(0, 0, 0)
+max_results = 3
+debug_shape_custom_color = Color(0.9882353, 0, 0, 1)
+
+[node name="SkidMarks" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4867182, -0.49758482)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="SkidMarks"]
+emitting = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_hvwjs")
+draw_pass_1 = SubResource("QuadMesh_ac15w")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="SkidMarks"]
+emitting = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_hvwjs")
+draw_pass_1 = SubResource("QuadMesh_ac15w")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="SkidMarks"]
+emitting = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_hvwjs")
+draw_pass_1 = SubResource("QuadMesh_ac15w")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="SkidMarks"]
+emitting = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_hvwjs")
+draw_pass_1 = SubResource("QuadMesh_ac15w")
+
+[node name="Gun" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.07765875, -0.99698, 0, 0.99698, -0.07765875, 0, 5.485844, 0.019904196)
+material_override = SubResource("StandardMaterial3D_ocpyo")
+mesh = SubResource("CylinderMesh_0hoo8")
+script = ExtResource("17_5ni8l")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 9.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rk1ey")
+}
+
+[node name="FlorianCri" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_ctwar")
+pitch_scale = 1.6
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.07957837, 5.5, -0.021684036)
+size = Vector3(2.8710938, 2, 2.293457)
+texture_albedo = ExtResource("20_lr8fk")
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

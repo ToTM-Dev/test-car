@@ -1,0 +1,81 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://kipw727ljqn2"
+path="res://.godot/imported/pick-up.glb-17bc53ded91089b48573014c136dedb4.scn"
+
+[deps]
+
+source_file="res://Models/cars/pick-up.glb"
+dest_files=["res://.godot/imported/pick-up.glb-17bc53ded91089b48573014c136dedb4.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"pick-up_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://ressources/car/pick_up/pick_up.res",
+"save_to_file/path": "uid://babhl4e8wrr74"
+},
+"pick-up_Cube_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
+},
+"pick-up_Cylinder": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://ressources/car/pick_up/wheel.res",
+"save_to_file/path": "uid://bmi31fs8t1msu"
+},
+"pick-up_Mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://ressources/car/pick_up/suspension.res",
+"save_to_file/path": "uid://65cnqxhok10a"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
