@@ -10,6 +10,7 @@ extends Camera3D
 @export var nitro_max_distance : float = 8
 
 @export var target : RaycastCar
+@export var viewport : SubViewport
 
 @onready var parent = get_parent()
 @onready var timer_label = $"../../Control/TimerLabel"
@@ -24,6 +25,9 @@ func  _ready() -> void:
 	_update_settings()
 	speed_label = $"../../Control/Label"
 	respawn_label = $"../../Control/CenterContainer/RespawnLabel"
+	
+	if viewport:
+		viewport.scaling_3d_scale = ProjectSettings.get_setting("rendering/scaling_3d/scale")
 	
 
 

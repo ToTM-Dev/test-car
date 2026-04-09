@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d1el1fwyidyky"]
+[gd_scene load_steps=36 format=3 uid="uid://d1el1fwyidyky"]
 
 [ext_resource type="Script" uid="uid://b2yik3pv7yu5m" path="res://Scripts/raycast_car.gd" id="1_s0hip"]
 [ext_resource type="Material" uid="uid://dy5cplckkm4jy" path="res://Shader_materials/Cars/blue_car.tres" id="3_sto8w"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://dy3gl3or4nlx6" path="res://Scripts/Prefabs/gun.gd" id="17_5ni8l"]
 [ext_resource type="ArrayMesh" uid="uid://bmi31fs8t1msu" path="res://ressources/car/pick_up/wheel.res" id="17_r66vy"]
 [ext_resource type="AudioStream" uid="uid://b7t0e015vd7lx" path="res://Sounds/FLORIAN-cri.mp3" id="19_ctwar"]
-[ext_resource type="Texture2D" uid="uid://8shchvbn80ct" path="res://ressources/shrek/3ee2e2bfe243c50895e724ef87116c25.jpg" id="20_lr8fk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hvwjs"]
 friction = 0.5
@@ -460,10 +459,5 @@ libraries = {
 [node name="FlorianCri" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_ctwar")
 pitch_scale = 1.6
-
-[node name="Decal" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.07957837, 5.5, -0.021684036)
-size = Vector3(2.8710938, 2, 2.293457)
-texture_albedo = ExtResource("20_lr8fk")
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
